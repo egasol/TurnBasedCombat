@@ -214,7 +214,17 @@ function processNpcTurn(npcId, io) {
       const damage = Math.floor(Math.random() * 6) + 1;
       npc.actionPoints -= 4;
       nearestPlayer.health -= damage;
-      io.emit('consoleLog', `NPC ${npc.id} attacked player ${nearestPlayer.id} for ${damage} damage.`);
+      // io.emit('consoleLog', `NPC ${npc.id} attacked player ${nearestPlayer.id} for ${damage} damage.`);
+      const logMessage = `NPC ${npc.id} attacked player ${nearestPlayer.id} for ${damage} damage.`
+      io.emit('damageFeedback', {
+        attacker: npc.id,
+        target: nearestPlayer.id,
+        damage: damage,
+        x: nearestPlayer.x,
+        y: nearestPlayer.y
+      });
+      io.emit('damageLog', logMessage);
+      io.emit('consoleLog', logMessage);
       if (nearestPlayer.health <= 0) {
         delete players[nearestPlayer.id];
         io.emit('playerRemoved', { id: nearestPlayer.id });
@@ -260,36 +270,6 @@ function processNpcTurn(npcId, io) {
       npc.y = nextStep.y;
       npc.actionPoints -= 1;
       io.emit('npcMoved', { id: npc.id, x: npc.x, y: npc.y, actionPoints: npc.actionPoints });
-      setTimeout(() => processNpcTurn(npcId, io), 300);
-      return;
-    } else {
-      finishTurn(io);
-      return;
-    }
-  } else {
-    // If path length is 1 (i.e. destination reached), try to attack.
-    if (npc.actionPoints >= 4) {
-      const damage = Math.floor(Math.random() * 6) + 1;
-      npc.actionPoints -=4;
-      nearestPlayer.health -= damage;
-      const logMessage = `NPC ${npc.id} attacked player ${nearestPlayer.id} for ${damage} damage.`;
-
-      io.emit('damageFeedback', {
-        attacker: npc.id,
-        target: nearestPlayer.id,
-        damage: damage,
-        x: nearestPlayer.x,
-        y: nearestPlayer.y
-      });
-      io.emit('damageLog', logMessage);
-
-      io.emit('consoleLog', logMessage);
-      if (nearestPlayer.health <= 0) {
-        delete players[nearestPlayer.id];
-        io.emit('playerRemoved', { id: nearestPlayer.id });
-      } else {
-        io.emit('playerUpdated', { id: nearestPlayer.id, health: nearestPlayer.health });
-      }
       setTimeout(() => processNpcTurn(npcId, io), 300);
       return;
     } else {

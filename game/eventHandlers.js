@@ -112,7 +112,6 @@ function handleAttack(socket, data, io) {
     }
     if (!targetNpc) return;
     if (player.actionPoints < 4) return;
-    console.log(`range: ${gameState.chebyshev(player.x, player.y, targetNpc.x, targetNpc.y)}`)
     if (gameState.chebyshev(player.x, player.y, targetNpc.x, targetNpc.y) > player.weaponRange) return;
     player.actionPoints -= 4;
     const maxAttack = player.weaponAttack + player.strength;
