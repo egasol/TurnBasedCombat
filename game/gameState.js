@@ -2,9 +2,9 @@
 // --- Global State ---
 const players = {};
 const npcs = {
-  'npc1': { id: 'npc1', x: 5, y: 5, friendly: false, health: 18 },
-  'npc2': { id: 'npc2', x: 12, y: 5, friendly: false, health: 18 },
-  'npc3': { id: 'npc3', x: 3, y: 14, friendly: false, health: 18 }
+  'npc1': { id: 'npc1', x: 5, y: 5, friendly: false, health: 18, isInBattle: false },
+  'npc2': { id: 'npc2', x: 12, y: 5, friendly: false, health: 18, isInBattle: false },
+  'npc3': { id: 'npc3', x: 3, y: 14, friendly: false, health: 18, isInBattle: false }
 };
 
 const terrain = [
@@ -79,23 +79,15 @@ function checkBattleOver(io) {
     return;
   }
   
-  // Check if no unfriendly NPCs remain.
-  let npcAlive = false;
-  for (const id in npcs) {
-    if (!npcs[id].friendly) {
-      npcAlive = true;
-      break;
-    }
-  }
-  if (!npcAlive) {
-    console.log("No unfriendly NPCs remain. Ending battle mode and switching to free mode.");
+  // Check if any NPC is still engaged in battle.
+  const engagedNpcExists = Object.values(npcs).some(npc => npc.isInBattle);
+
+  if (!engagedNpcExists) {
+    console.log("No engaged NPCs remain. Ending battle mode and switching to free mode.");
     gameMode = 'free';
     battleQueue = [];
-    // Clear any turn flags on players.
-    for (const pid in players) {
-      players[pid].isTurn = false;
-    }
     io.emit('battleEnded', { gameMode, players, npcs, terrain });
+    return;
   }
 }
 
@@ -131,15 +123,6 @@ function initBattleMode(io) {
 }
 
 function finishTurn(io) {
-  // If no players remain, end battle mode and do not continue turn rotation.
-  if (Object.keys(players).length === 0) {
-    console.log("No remaining players. Ending turn rotation.");
-    gameMode = 'free';
-    battleQueue = [];
-    io.emit('battleEnded', { gameMode, players, npcs, terrain });
-    return;
-  }
-  
   // Clean up battleQueue (remove dead players or NPCs, if necessary)
   cleanupBattleQueue();
   
@@ -186,9 +169,10 @@ function processNpcTurn(npcId, io) {
   if (!battleQueue.length || battleQueue[0].type !== 'npc' || battleQueue[0].id !== npcId) {
     return; // Not this NPC's turn; exit.
   }
-  
+
   const npc = npcs[npcId];
-  if (!npc) {
+
+  if (!npc || !npc.isInBattle) {
     finishTurn(io);
     return;
   }

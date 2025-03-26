@@ -29,7 +29,9 @@ function animateMovement(entity, path, steps, io, entityType, callback) {
 
     entity.x = path[currentStep].x;
     entity.y = path[currentStep].y;
+
     if (entityType === 'player') {
+      updateNpcsBattleStatus(entity, gameState.npcs);
       io.emit('playerMoved', { id: entity.id, x: entity.x, y: entity.y, actionPoints: entity.actionPoints });
     } else if (entityType === 'npc') {
       io.emit('npcMoved', { id: entity.id, x: entity.x, y: entity.y, actionPoints: entity.actionPoints });
@@ -37,6 +39,22 @@ function animateMovement(entity, path, steps, io, entityType, callback) {
     timeoutId = setTimeout(step, 200);
   }
   step();
+}
+
+function updateNpcsBattleStatus(player, npcs) {
+  for (const npcId in npcs) {
+    const npc = npcs[npcId];
+    if (!npc.friendly) {
+      // If the flag is already true, keep it as true.
+      if (npc.isInBattle) continue;
+
+      // Check if the player is within Euclidean distance 4.
+      if (gameState.euclidean(player.x, player.y, npc.x, npc.y) < 4) {
+        npc.isInBattle = true;
+        console.log(`Npc isInBattle = True`)
+      }
+    }
+  }
 }
 
 /**
@@ -91,7 +109,7 @@ function animateMovement(entity, path, steps, io, entityType, callback) {
       io.emit('playerMoved', { id: socket.id, x: player.x, y: player.y, actionPoints: "Unlimited" });
       for (const npcId in gameState.npcs) {
         const npc = gameState.npcs[npcId];
-        if (!npc.friendly && gameState.euclidean(player.x, player.y, npc.x, npc.y) < 2) {
+        if (!npc.friendly && gameState.euclidean(player.x, player.y, npc.x, npc.y) < 4) {
           gameState.initBattleMode(io);
           break;
         }
