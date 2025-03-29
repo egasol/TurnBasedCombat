@@ -33,52 +33,44 @@ function lerp(start, end, amt) {
 return start + (end - start) * amt;
 }
 
-// Render loop with smooth animation.
-function render() {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-const cols = canvas.width / cellSize;
-const rows = canvas.height / cellSize;
-
-// Draw floor tiles for every cell.
-if (floorSprite.complete) {
-	for (let i = 0; i < cols; i++) {
-	for (let j = 0; j < rows; j++) {
-		ctx.drawImage(floorSprite, i * cellSize, j * cellSize, cellSize, cellSize);
+function drawFloorTiles(ctx, floorSprite, cols, rows) {
+	if (floorSprite.complete) {
+	  for (let i = 0; i < cols; i++) {
+		  for (let j = 0; j < rows; j++) {
+        ctx.drawImage(floorSprite, i * cellSize, j * cellSize, cellSize, cellSize);
+      }
+    }
 	}
-	}
-} else {
-	// Fallback: fill with a light color.
-	ctx.fillStyle = "#e0e0e0";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-// Draw grid lines.
-ctx.strokeStyle = "#ddd";
-for (let i = 0; i <= cols; i++) {
-	ctx.beginPath();
-	ctx.moveTo(i * cellSize, 0);
-	ctx.lineTo(i * cellSize, canvas.height);
-	ctx.stroke();
-}
-for (let j = 0; j <= rows; j++) {
-	ctx.beginPath();
-	ctx.moveTo(0, j * cellSize);
-	ctx.lineTo(canvas.width, j * cellSize);
-	ctx.stroke();
+function drawGridLines(ctx, cols, rows) {
+  ctx.strokeStyle = "#ddd";
+  for (let i = 0; i <= cols; i++) {
+    ctx.beginPath();
+    ctx.moveTo(i * cellSize, 0);
+    ctx.lineTo(i * cellSize, canvas.height);
+    ctx.stroke();
+  }
+  for (let j = 0; j <= rows; j++) {
+    ctx.beginPath();
+    ctx.moveTo(0, j * cellSize);
+    ctx.lineTo(canvas.width, j * cellSize);
+    ctx.stroke();
+  }
 }
 
-// Draw terrain obstacles using their designated sprite.
-terrain.forEach(ob => {
-	let sprite = terrainSprites[ob.type];
-	if (sprite && sprite.complete) {
-	ctx.drawImage(sprite, ob.x * cellSize, ob.y * cellSize, cellSize, cellSize);
-	} else {
-	ctx.fillStyle = "#555";
-	ctx.fillRect(ob.x * cellSize, ob.y * cellSize, cellSize, cellSize);
-	}
-});
+function drawTerrain(ctx, terrain, terrainSprites) {
+  terrain.forEach(ob => {
+    let sprite = terrainSprites[ob.type];
+    if (sprite && sprite.complete) {
+      ctx.drawImage(sprite, ob.x * cellSize, ob.y * cellSize, cellSize, cellSize);
+    } else {
+      ctx.fillStyle = "#555";
+      ctx.fillRect(ob.x * cellSize, ob.y * cellSize, cellSize, cellSize);
+    }
+  });
+}
 
-// Smooth movement update helper.
 function updateEntityRender(entity) {
 	if (entity.renderX === undefined) {
 	entity.renderX = entity.x * cellSize;
@@ -88,77 +80,90 @@ function updateEntityRender(entity) {
 	entity.renderY = lerp(entity.renderY, entity.y * cellSize, 0.2);
 }
 
-// Draw players.
-Object.values(players).forEach(p => {
-	updateEntityRender(p);
-	if (playerSprite.complete) {
-	ctx.drawImage(playerSprite, p.renderX, p.renderY, cellSize, cellSize);
-	} else {
-	ctx.fillStyle = (p.id === socket.id) ? 'blue' : 'green';
-	ctx.fillRect(p.renderX, p.renderY, cellSize, cellSize);
-	}
-	if (p.isTurn) {
-	ctx.strokeStyle = 'yellow';
-	ctx.lineWidth = 2;
-	ctx.strokeRect(p.renderX, p.renderY, cellSize, cellSize);
-	}
-	ctx.fillStyle = "rgba(0,0,0,0.5)";
-	// ctx.fillRect(p.renderX, p.renderY, cellSize, 20);
-	// ctx.fillStyle = "white";
-	// ctx.font = "12px sans-serif";
-	// const apText = (gameMode === 'free') ? "AP: ∞" : "AP:" + p.actionPoints;
-	// ctx.fillText(`${apText} HP:${p.health}`, p.renderX + 2, p.renderY + 15);
-});
-
-// Draw NPCs.
-Object.values(npcs).forEach(npc => {
-	updateEntityRender(npc);
-	if (npcSprite.complete) {
-	ctx.drawImage(npcSprite, npc.renderX, npc.renderY, cellSize, cellSize);
-	} else {
-	ctx.fillStyle = 'red';
-	ctx.fillRect(npc.renderX, npc.renderY, cellSize, cellSize);
-	}
-	if(npc.isTurn) {
-	ctx.strokeStyle = 'yellow';
-	ctx.lineWidth = 2;
-	ctx.strokeRect(npc.renderX, npc.renderY, cellSize, cellSize);
-	}
-	ctx.fillStyle = "rgba(0,0,0,0.5)";
-	// ctx.fillRect(npc.renderX, npc.renderY, cellSize, 20);
-	// ctx.fillStyle = "white";
-	// ctx.font = "12px sans-serif";
-	// let apText = (gameMode === 'battle' && npc.actionPoints !== undefined) ? "AP:" + npc.actionPoints : "";
-	// ctx.fillText(`${apText} HP:${npc.health}`, npc.renderX + 2, npc.renderY + 15);
-});
-
-// Update on-screen display for the local player.
-if (players[socket.id]) {
-	const displayAP = (gameMode === 'free') ? "Unlimited" : players[socket.id].actionPoints;
-	apDisplay.textContent = `Your Action Points: ${displayAP} | Health: ${players[socket.id].health}`;
-} else {
-	apDisplay.textContent = "";
+function drawPlayers(ctx, players, playerSprite) {
+  Object.values(players).forEach(p => {
+    updateEntityRender(p);
+    if (playerSprite.complete) {
+      ctx.drawImage(playerSprite, p.renderX, p.renderY, cellSize, cellSize);
+    } else {
+      ctx.fillStyle = (p.id === socket.id) ? 'blue' : 'green';
+      ctx.fillRect(p.renderX, p.renderY, cellSize, cellSize);
+    }
+    if (p.isTurn) {
+      ctx.strokeStyle = 'yellow';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(p.renderX, p.renderY, cellSize, cellSize);
+    }
+  });
 }
-// Draw floating damage text.
-const currentTime = Date.now();
-for (let i = floatingTexts.length - 1; i >= 0; i--) {
-	const ft = floatingTexts[i];
-	const elapsed = currentTime - ft.startTime;
-	if (elapsed > ft.duration) {
-	// Remove expired text.
-	floatingTexts.splice(i, 1);
-	continue;
-	}
-	const alpha = 1 - (elapsed / ft.duration);
-	ctx.save();
-	ctx.globalAlpha = alpha;
-	ctx.fillStyle = "yellow";
-	ctx.font = "bold 14px sans-serif";
-	// Draw the damage value; adjust offsets as needed.
-	ctx.fillText(ft.damage, ft.x * cellSize, ft.y * cellSize);
-	ctx.restore();
+
+function drawNPCs(ctx, npcs, npcSprite) {
+  Object.values(npcs).forEach(npc => {
+    updateEntityRender(npc);
+    if (npcSprite.complete) {
+      ctx.drawImage(npcSprite, npc.renderX, npc.renderY, cellSize, cellSize);
+    } else {
+      ctx.fillStyle = 'red';
+      ctx.fillRect(npc.renderX, npc.renderY, cellSize, cellSize);
+    }
+    if (npc.isTurn) {
+      ctx.strokeStyle = 'yellow';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(npc.renderX, npc.renderY, cellSize, cellSize);
+    }
+  });
 }
-requestAnimationFrame(render);
+
+function drawOnScreenInfo(player) {
+  if (player) {
+    const displayAP = (gameMode === 'free') ? "Unlimited" : player.actionPoints;
+    apDisplay.textContent = `Your Action Points: ${displayAP} | Health: ${player.health}`;
+  } else {
+    apDisplay.textContent = "";
+  }
+}
+
+function drawFloatingDamageText(ctx, floatingTexts) {
+  const currentTime = Date.now();
+  for (let i = floatingTexts.length - 1; i >= 0; i--) {
+    const ft = floatingTexts[i];
+    const elapsed = currentTime - ft.startTime;
+    if (elapsed > ft.duration) {
+      // Remove expired text.
+      floatingTexts.splice(i, 1);
+      continue;
+    }
+    const alpha = 1 - (elapsed / ft.duration);
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = "red";
+    ctx.font = "bold 14px sans-serif";
+    // Draw the damage value; adjust offsets as needed.
+    ctx.fillText(ft.damage, ft.x * cellSize, ft.y * cellSize);
+    ctx.restore();
+  }
+}
+
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const cols = canvas.width / cellSize;
+  const rows = canvas.height / cellSize;
+
+  drawFloorTiles(ctx, floorSprite, cols, rows);
+
+  drawGridLines(ctx, cols, rows);
+
+  drawTerrain(ctx, terrain, terrainSprites);
+
+  drawPlayers(ctx, players, playerSprite);
+
+  drawNPCs(ctx, npcs, npcSprite);
+
+  drawOnScreenInfo(players[socket.id]);
+
+  drawFloatingDamageText(ctx, floatingTexts);
+
+  requestAnimationFrame(render);
 }
 
 // Click handler: determine if the click is on an NPC for an attack
