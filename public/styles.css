@@ -22,17 +22,27 @@ body {
   /* Game Mode Notification (Medieval Banner) */
   .medieval-banner {
 	text-align: center;
-	background: url('scroll-texture.png') no-repeat center;
+	background: url('scroll.png') no-repeat center;
 	background-size: cover;
 	color: #3e2723;
 	font-family: 'Papyrus', serif;
 	font-size: 1.8em;
+	/* Use fixed padding if needed */
 	padding: 10px 20px;
 	margin-bottom: 10px;
 	border: 2px solid #5d4037;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	
+	/* Fixed dimensions */
+	width: 200px;      /* Change to your preferred width */
+	height: 50px;      /* Fixed height */
+	line-height: 50px; /* Vertically center text if it's a single line */
+	
+	/* Optional: hide any overflow text */
+	overflow: hidden;
   }
+  
   
   #modeText {
 	font-weight: bold;

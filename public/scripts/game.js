@@ -6,7 +6,7 @@ let floatingTexts = []; // To store floating damage numbers.
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const apDisplay = document.getElementById("apDisplay");
-const cellSize = 20;
+const cellSize = 32;
 
 // --- Load Sprites ---
 // Floor sprite (for non-blocking tiles)
@@ -24,13 +24,24 @@ terrainSprites["bush"].src = "sprites/bush.png";
 
 // Player and NPC sprites.
 const playerSprite = new Image();
-playerSprite.src = "sprites/player.png";
+playerSprite.src = "sprites/warrior.png";
 const npcSprite = new Image();
-npcSprite.src = "sprites/npc.png";
+npcSprite.src = "sprites/rat.png";
 
 // --- Helper: Linear interpolation.
 function lerp(start, end, amt) {
 return start + (end - start) * amt;
+}
+
+function updateGameMode(mode) {
+  const modeText = document.getElementById('modeText');
+  if (mode === 'battle') {
+    modeText.textContent = 'Battle Mode';
+    modeText.style.color = '#b71c1c';
+  } else {
+    modeText.textContent = 'Explore Mode';
+    modeText.style.color = '#3e2723';
+  }
 }
 
 function calculateVisibleTiles(player, terrain, cols, rows) {
@@ -310,6 +321,7 @@ socket.on('battleMode', (data) => {
   players = data.players;
   npcs = data.npcs;
   terrain = data.terrain || terrain;
+  updateGameMode('battle');
 });
 socket.on('turnUpdate', (data) => {
   battleQueue = data.battleQueue;
@@ -324,6 +336,7 @@ socket.on('battleEnded', (data) => {
   npcs = data.npcs;
   terrain = data.terrain || terrain;
   console.log("Battle ended: switching to free mode.");
+  updateGameMode('free');
 });
 // Handler for damageFeedback event: display floating text.
 socket.on('damageFeedback', (data) => {

@@ -182,8 +182,8 @@ module.exports = {
 function addPlayer(socket, io) {
   gameState.players[socket.id] = {
     id: socket.id,
-    x: Math.floor(Math.random() * 20),
-    y: Math.floor(Math.random() * 20),
+    x: 2,
+    y: 2,
     isTurn: false,
     actionPoints: 10,
     health: 24,
