@@ -8,14 +8,14 @@ const npcs = {
 };
 
 const terrain = [
-  { x: 7, y: 7, type: "rock" },
-  { x: 7, y: 8, type: "rock" },
-  { x: 7, y: 9, type: "rock" },
-  { x: 8, y: 7, type: "tree" },
-  { x: 9, y: 7, type: "tree" },
-  { x: 12, y: 12, type: "bush" },
-  { x: 12, y: 13, type: "bush" },
-  { x: 13, y: 12, type: "bush" }
+  { x: 7, y: 7, type: "rock", blocksVision: true },
+  { x: 7, y: 8, type: "rock", blocksVision: true },
+  { x: 7, y: 9, type: "rock", blocksVision: true },
+  { x: 8, y: 7, type: "tree", blocksVision: true },
+  { x: 9, y: 7, type: "tree", blocksVision: true },
+  { x: 12, y: 12, type: "bush", blocksVision: false },
+  { x: 12, y: 13, type: "bush", blocksVision: false },
+  { x: 13, y: 12, type: "bush", blocksVision: false }
 ];
 
 let gameMode = 'free'; // Either "free" or "battle"

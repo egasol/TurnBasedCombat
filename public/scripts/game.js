@@ -72,8 +72,7 @@ function isBlockedByTerrain(playerX, playerY, targetX, targetY, terrain) {
   let error = deltaX - deltaY;
 
   while (x !== targetX || y !== targetY) {
-    // TODO: Add && t.blocksVision to disgard terrain not blocking vision
-    if (terrain.some(t => t.x === x && t.y === y)) {
+    if (terrain.some(t => t.x === x && t.y === y && t.blocksVision)) {
       return true;
     }
 
