@@ -13,24 +13,24 @@ const cellSize = 32;
 const floorSprite = new Image();
 floorSprite.src = "sprites/floor.png";
 
-// Terrain sprites.
 const sprites = {};
-sprites["rock"] = new Image();
-sprites["rock"].src = "sprites/rock.png";
-sprites["tree"] = new Image();
-sprites["tree"].src = "sprites/tree.png";
-sprites["bush"] = new Image();
-sprites["bush"].src = "sprites/bush.png";
-sprites["rat"] = new Image();
-sprites["rat"].src = "sprites/rat.png";
-sprites["warrior"] = new Image();
-sprites["warrior"].src = "sprites/warrior.png";
 
-// Player and NPC sprites.
-const playerSprite = new Image();
-playerSprite.src = "sprites/warrior.png";
-const npcSprite = new Image();
-npcSprite.src = "sprites/rat.png";
+function preloadSprites() {
+  const spriteSources = {
+    rock: "sprites/terrain/rock.png",
+    tree: "sprites/terrain/tree.png",
+    bush: "sprites/terrain/bush.png",
+    rat: "sprites/monsters/rat.png",
+    warrior: "sprites/players/warrior.png"
+  };
+
+  for (const name in spriteSources) {
+    sprites[name] = new Image();
+    sprites[name].src = spriteSources[name];
+  }
+}
+
+preloadSprites();
 
 // --- Helper: Linear interpolation.
 function lerp(start, end, amt) {

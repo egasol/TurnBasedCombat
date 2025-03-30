@@ -66,7 +66,7 @@ body {
 	border-radius: 5px; /* Slightly rounded edges */
 	background-color: #f5f5dc; /* Neutral parchment-like background */
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds depth */
-	cursor: url('sprites/cursor_gauntlet.png'), crosshair;
+	cursor: url('sprites/cursor.png'), crosshair;
   }  
   
   /* Buttons and Side Panel */
