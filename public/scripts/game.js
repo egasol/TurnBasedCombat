@@ -42,8 +42,6 @@ function calculateVisibleTiles(player, terrain, cols, rows) {
       for (let dy = -visionRange; dy <= visionRange; dy++) {
         const x = player.x + dx;
         const y = player.y + dy;
-        // const x = 10;
-        // const y = 10;
 
         // Skip out-of-bounds tiles
         if (x < 0 || y < 0 || x >= cols || y >= rows) continue;
@@ -237,132 +235,123 @@ function render() {
 
 // Click handler: determine if the click is on an NPC for an attack
 canvas.addEventListener('click', (event) => {
-const rect = canvas.getBoundingClientRect();
-const cellX = Math.floor((event.clientX - rect.left) / cellSize);
-const cellY = Math.floor((event.clientY - rect.top) / cellSize);
-// First, check if this cell has an NPC.
-let clickedNpc = null;
-for (let npcId in npcs) {
-	let npc = npcs[npcId];
-	if (npc.x === cellX && npc.y === cellY) {
-	clickedNpc = npc;
-	break;
-	}
-}
-if (clickedNpc) {
-	// // Retrieve the player's weapon range.
-	// let localPlayer = players[socket.id];
-	// let range = localPlayer.weaponRange || 1;
-	// let dist = Math.abs(localPlayer.x - clickedNpc.x) + Math.abs(localPlayer.y - clickedNpc.y);
-	// if (dist <= range) {
-	//   // NPC is in attack range; send an attack event with the npcId.
-	//   socket.emit('attack', { npcId: clickedNpc.id });
-	//   return;
-	// }
-	socket.emit('attack', { npcId: clickedNpc.id });
-	return;
-	// If the target is out of range, fall through to move
-}
-// Otherwise, treat the click as a move command.
-socket.emit('move', { destX: cellX, destY: cellY });
+  const rect = canvas.getBoundingClientRect();
+  const cellX = Math.floor((event.clientX - rect.left) / cellSize);
+  const cellY = Math.floor((event.clientY - rect.top) / cellSize);
+
+  // First, check if this cell has an NPC.
+  let clickedNpc = null;
+  for (let npcId in npcs) {
+    let npc = npcs[npcId];
+    if (npc.x === cellX && npc.y === cellY) {
+    clickedNpc = npc;
+    break;
+    }
+  }
+  if (clickedNpc) {
+    socket.emit('attack', { npcId: clickedNpc.id });
+    return;
+  }
+  // Otherwise, treat the click as a move command.
+  socket.emit('move', { destX: cellX, destY: cellY });
 });
 
 // Skip-turn control.
 document.getElementById("skipBtn").addEventListener("click", () => {
-socket.emit('skipTurn');
+  socket.emit('skipTurn');
 });
 
 /* Socket.IO Event Handlers */
 socket.on('init', (data) => {
-player = data.player;
-players = data.players;
-npcs = data.npcs;
-terrain = data.terrain || [];
-gameMode = data.gameMode;
-Object.values(players).forEach(p => {
-	p.renderX = p.x * cellSize;
-	p.renderY = p.y * cellSize;
-});
-Object.values(npcs).forEach(npc => {
-	npc.renderX = npc.x * cellSize;
-	npc.renderY = npc.y * cellSize;
-});
+  player = data.player;
+  players = data.players;
+  npcs = data.npcs;
+  terrain = data.terrain || [];
+  gameMode = data.gameMode;
+  Object.values(players).forEach(p => {
+    p.renderX = p.x * cellSize;
+    p.renderY = p.y * cellSize;
+  });
+  Object.values(npcs).forEach(npc => {
+    npc.renderX = npc.x * cellSize;
+    npc.renderY = npc.y * cellSize;
+  });
 });
 
 socket.on('playerJoined', (p) => { players[p.id] = p; });
 socket.on('playerMoved', (data) => {
-if (players[data.id]) {
-	players[data.id].x = data.x;
-	players[data.id].y = data.y;
-	players[data.id].actionPoints = data.actionPoints;
-}
+  if (players[data.id]) {
+    players[data.id].x = data.x;
+    players[data.id].y = data.y;
+    players[data.id].actionPoints = data.actionPoints;
+  }
 });
 socket.on('playerUpdated', (data) => {
-if (players[data.id]) {
-	if (data.health !== undefined) players[data.id].health = data.health;
-	if (data.actionPoints !== undefined) players[data.id].actionPoints = data.actionPoints;
-}
+  if (players[data.id]) {
+    if (data.health !== undefined) players[data.id].health = data.health;
+    if (data.actionPoints !== undefined) players[data.id].actionPoints = data.actionPoints;
+  }
 });
 socket.on('npcMoved', (data) => {
-if (npcs[data.id]) {
-	npcs[data.id].x = data.x;
-	npcs[data.id].y = data.y;
-	npcs[data.id].actionPoints = data.actionPoints;
-}
+  if (npcs[data.id]) {
+    npcs[data.id].x = data.x;
+    npcs[data.id].y = data.y;
+    npcs[data.id].actionPoints = data.actionPoints;
+  }
 });
 socket.on('npcUpdated', (data) => {
-if (npcs[data.id]) { npcs[data.id].health = data.health; }
+  if (npcs[data.id]) { npcs[data.id].health = data.health; }
 });
 socket.on('npcRemoved', (data) => { delete npcs[data.id]; });
 socket.on('playerRemoved', (data) => { delete players[data.id]; });
 socket.on('playerDisconnected', (data) => { delete players[data.id]; });
 socket.on('battleMode', (data) => {
-gameMode = data.gameMode;
-battleQueue = data.battleQueue;
-players = data.players;
-npcs = data.npcs;
-terrain = data.terrain || terrain;
+  gameMode = data.gameMode;
+  battleQueue = data.battleQueue;
+  players = data.players;
+  npcs = data.npcs;
+  terrain = data.terrain || terrain;
 });
 socket.on('turnUpdate', (data) => {
-battleQueue = data.battleQueue;
-players = data.players;
-npcs = data.npcs;
-terrain = data.terrain || terrain;
+  battleQueue = data.battleQueue;
+  players = data.players;
+  npcs = data.npcs;
+  terrain = data.terrain || terrain;
 });
 socket.on('battleEnded', (data) => {
-gameMode = data.gameMode;
-battleQueue = [];
-players = data.players;
-npcs = data.npcs;
-terrain = data.terrain || terrain;
-console.log("Battle ended: switching to free mode.");
+  gameMode = data.gameMode;
+  battleQueue = [];
+  players = data.players;
+  npcs = data.npcs;
+  terrain = data.terrain || terrain;
+  console.log("Battle ended: switching to free mode.");
 });
 // Handler for damageFeedback event: display floating text.
 socket.on('damageFeedback', (data) => {
-// data contains: { attacker, target, damage, x, y }
-// Create a floating text object.
-floatingTexts.push({
-	x: data.x,           // grid x-coordinate
-	y: data.y,           // grid y-coordinate
-	damage: data.damage, // damage value
-	startTime: Date.now(),
-	duration: 3000      // duration of 3 seconds
-});
+  // data contains: { attacker, target, damage, x, y }
+  // Create a floating text object.
+  floatingTexts.push({
+    x: data.x,           // grid x-coordinate
+    y: data.y,           // grid y-coordinate
+    damage: data.damage, // damage value
+    startTime: Date.now(),
+    duration: 3000      // duration of 3 seconds
+  });
 });
 
 // Handler for damageLog event: append the log message to a log panel.
 socket.on('damageLog', (message) => {
-const logDiv = document.getElementById("damageLog");
-if (logDiv) {
-	const p = document.createElement("p");
-	p.style.margin = "0";
-	p.textContent = message;
-	logDiv.appendChild(p);
-	// Optionally, limit to last 10 messages.
-	if (logDiv.childNodes.length > 10) {
-	logDiv.removeChild(logDiv.firstChild);
-	}
-}
+  const logDiv = document.getElementById("damageLog");
+  if (logDiv) {
+    const p = document.createElement("p");
+    p.style.margin = "0";
+    p.textContent = message;
+    logDiv.appendChild(p);
+    // Optionally, limit to last 10 messages.
+    if (logDiv.childNodes.length > 10) {
+    logDiv.removeChild(logDiv.firstChild);
+    }
+  }
 });
 
 socket.on('consoleLog', (msg) => { console.log(msg); });
