@@ -3,10 +3,10 @@
 const players = {};
 // Enemy NPCs placed in strategic positions within the maze.
 const npcs = {
-  'npc1': { id: 'npc1', x: 11, y: 3, friendly: false, health: 20, isInBattle: false },
-  'npc2': { id: 'npc2', x: 13, y: 23, friendly: false, health: 20, isInBattle: false },
-  'npc3': { id: 'npc3', x: 20, y: 12, friendly: false, health: 20, isInBattle: false },
-  'npc4': { id: 'npc4', x: 5, y: 17, friendly: false, health: 20, isInBattle: false }
+  'npc1': { id: 'npc1', x: 11, y: 3, friendly: false, health: 20, isInBattle: false, sprite: "rat" },
+  'npc2': { id: 'npc2', x: 13, y: 23, friendly: false, health: 20, isInBattle: false, sprite: "rat" },
+  'npc3': { id: 'npc3', x: 20, y: 12, friendly: false, health: 20, isInBattle: false, sprite: "rat" },
+  'npc4': { id: 'npc4', x: 5, y: 17, friendly: false, health: 20, isInBattle: false, sprite: "rat" }
 };
 
 // Maze-like terrain configuration for a 25x25 grid.

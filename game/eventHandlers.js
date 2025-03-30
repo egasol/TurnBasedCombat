@@ -189,7 +189,8 @@ function addPlayer(socket, io) {
     health: 24,
     strength: 3,
     weaponAttack: 4,
-    weaponRange: 1
+    weaponRange: 1,
+    sprite: "warrior"
   };
   socket.emit('init', { 
     player: gameState.players[socket.id],

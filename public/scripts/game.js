@@ -14,13 +14,17 @@ const floorSprite = new Image();
 floorSprite.src = "sprites/floor.png";
 
 // Terrain sprites.
-const terrainSprites = {};
-terrainSprites["rock"] = new Image();
-terrainSprites["rock"].src = "sprites/rock.png";
-terrainSprites["tree"] = new Image();
-terrainSprites["tree"].src = "sprites/tree.png";
-terrainSprites["bush"] = new Image();
-terrainSprites["bush"].src = "sprites/bush.png";
+const sprites = {};
+sprites["rock"] = new Image();
+sprites["rock"].src = "sprites/rock.png";
+sprites["tree"] = new Image();
+sprites["tree"].src = "sprites/tree.png";
+sprites["bush"] = new Image();
+sprites["bush"].src = "sprites/bush.png";
+sprites["rat"] = new Image();
+sprites["rat"].src = "sprites/rat.png";
+sprites["warrior"] = new Image();
+sprites["warrior"].src = "sprites/warrior.png";
 
 // Player and NPC sprites.
 const playerSprite = new Image();
@@ -128,9 +132,9 @@ function drawGridLines(ctx, cols, rows) {
   }
 }
 
-function drawTerrain(ctx, terrain, terrainSprites) {
+function drawTerrain(ctx, terrain, sprites) {
   terrain.forEach(ob => {
-    let sprite = terrainSprites[ob.type];
+    let sprite = sprites[ob.type];
     if (sprite && sprite.complete) {
       ctx.drawImage(sprite, ob.x * cellSize, ob.y * cellSize, cellSize, cellSize);
     } else {
@@ -149,11 +153,12 @@ function updateEntityRender(entity) {
 	entity.renderY = lerp(entity.renderY, entity.y * cellSize, 0.2);
 }
 
-function drawPlayers(ctx, players, playerSprite) {
+function drawPlayers(ctx, players, sprites) {
   Object.values(players).forEach(p => {
+    let sprite = sprites[p.sprite];
     updateEntityRender(p);
-    if (playerSprite.complete) {
-      ctx.drawImage(playerSprite, p.renderX, p.renderY, cellSize, cellSize);
+    if (sprite && sprite.complete) {
+      ctx.drawImage(sprite, p.renderX, p.renderY, cellSize, cellSize);
     } else {
       ctx.fillStyle = (p.id === socket.id) ? 'blue' : 'green';
       ctx.fillRect(p.renderX, p.renderY, cellSize, cellSize);
@@ -166,11 +171,12 @@ function drawPlayers(ctx, players, playerSprite) {
   });
 }
 
-function drawNPCs(ctx, npcs, npcSprite) {
+function drawNPCs(ctx, npcs, sprites) {
   Object.values(npcs).forEach(npc => {
+    let sprite = sprites[npc.sprite];
     updateEntityRender(npc);
-    if (npcSprite.complete) {
-      ctx.drawImage(npcSprite, npc.renderX, npc.renderY, cellSize, cellSize);
+    if (sprite && sprite.complete) {
+      ctx.drawImage(sprite, npc.renderX, npc.renderY, cellSize, cellSize);
     } else {
       ctx.fillStyle = 'red';
       ctx.fillRect(npc.renderX, npc.renderY, cellSize, cellSize);
@@ -233,9 +239,9 @@ function render() {
   const visibleTiles = calculateVisibleTiles(players[socket.id], terrain, cols, rows);
 
   drawFloorTiles(ctx, floorSprite, cols, rows);
-  drawTerrain(ctx, terrain, terrainSprites);
-  drawPlayers(ctx, players, playerSprite);
-  drawNPCs(ctx, npcs, npcSprite);
+  drawTerrain(ctx, terrain, sprites);
+  drawPlayers(ctx, players, sprites);
+  drawNPCs(ctx, npcs, sprites);
   drawOnScreenInfo(players[socket.id]);
   drawFloatingDamageText(ctx, floatingTexts);
   drawHiddenTiles(ctx, visibleTiles, cols, rows);
