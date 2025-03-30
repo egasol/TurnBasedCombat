@@ -33,6 +33,67 @@ function lerp(start, end, amt) {
 return start + (end - start) * amt;
 }
 
+function calculateVisibleTiles(player, terrain, cols, rows) {
+  const visibleTiles = Array.from({ length: cols }, () => Array(rows).fill(false));
+  const visionRange = 5;
+
+  if (player) {
+    for (let dx = -visionRange; dx <= visionRange; dx++) {
+      for (let dy = -visionRange; dy <= visionRange; dy++) {
+        const x = player.x + dx;
+        const y = player.y + dy;
+        // const x = 10;
+        // const y = 10;
+
+        // Skip out-of-bounds tiles
+        if (x < 0 || y < 0 || x >= cols || y >= rows) continue;
+
+        const distance = Math.sqrt(dx ** 2 + dy ** 2);
+        if (distance <= visionRange) {
+          // If line-of-sight is not blocked, mark the tile as visible
+          if (!isBlockedByTerrain(player.x, player.y, x, y, terrain)) {
+            visibleTiles[x][y] = true;
+          }
+        }
+      }
+    }
+  }
+
+  return visibleTiles;
+}
+
+function isBlockedByTerrain(playerX, playerY, targetX, targetY, terrain) {
+  let x = playerX;
+  let y = playerY;
+
+  const deltaX = Math.abs(targetX - playerX);
+  const deltaY = Math.abs(targetY - playerY);
+  const stepX = playerX < targetX ? 1 : -1;
+  const stepY = playerY < targetY ? 1 : -1;
+
+  let error = deltaX - deltaY;
+
+  while (x !== targetX || y !== targetY) {
+    // TODO: Add && t.blocksVision to disgard terrain not blocking vision
+    if (terrain.some(t => t.x === x && t.y === y)) {
+      return true;
+    }
+
+    const error2 = error * 2;
+
+    if (error2 > -deltaY) {
+      error -= deltaY;
+      x += stepX;
+    }
+
+    if (error2 < deltaX) {
+      error += deltaX;
+      y += stepY;
+    }
+  }
+  return false;
+}
+
 function drawFloorTiles(ctx, floorSprite, cols, rows) {
 	if (floorSprite.complete) {
 	  for (let i = 0; i < cols; i++) {
@@ -144,24 +205,32 @@ function drawFloatingDamageText(ctx, floatingTexts) {
   }
 }
 
+function drawHiddenTiles(ctx, visibleTiles, cols, rows) {
+  ctx.fillStyle = "#000";
+
+  for (let x = 0; x < cols; x++) {
+    for (let y = 0; y < rows; y++) {
+      if (!visibleTiles[x][y]) {
+        ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+      }
+    }
+  }
+}
+
 function render() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const cols = canvas.width / cellSize;
   const rows = canvas.height / cellSize;
 
+  const visibleTiles = calculateVisibleTiles(players[socket.id], terrain, cols, rows);
+
   drawFloorTiles(ctx, floorSprite, cols, rows);
-
-  drawGridLines(ctx, cols, rows);
-
   drawTerrain(ctx, terrain, terrainSprites);
-
   drawPlayers(ctx, players, playerSprite);
-
   drawNPCs(ctx, npcs, npcSprite);
-
   drawOnScreenInfo(players[socket.id]);
-
   drawFloatingDamageText(ctx, floatingTexts);
+  drawHiddenTiles(ctx, visibleTiles, cols, rows);
 
   requestAnimationFrame(render);
 }
