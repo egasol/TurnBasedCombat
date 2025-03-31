@@ -20,8 +20,16 @@ function preloadSprites() {
     rock: "sprites/terrain/rock.png",
     tree: "sprites/terrain/tree.png",
     bush: "sprites/terrain/bush.png",
+    skull_impaled: "sprites/terrain/skull-impaled.png",
+    warrior: "sprites/players/warrior.png",
+    warrior: "sprites/players/mage.png",
+    warrior: "sprites/players/mercenary.png",
     rat: "sprites/monsters/rat.png",
-    warrior: "sprites/players/warrior.png"
+    spider: "sprites/monsters/spider.png",
+    pigtoad: "sprites/monsters/pigtoad.png",
+    ogre: "sprites/monsters/ogres/ogre.png",
+    ogre_axe: "sprites/monsters/ogres/ogre-axe.png",
+    ogre_warlock: "sprites/monsters/ogres/ogre-warlock.png",
   };
 
   for (const name in spriteSources) {
