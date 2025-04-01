@@ -1,0 +1,10 @@
+{
+  "name": "asd",
+  "charClass": "warrior",
+  "stats": {
+    "strength": 25,
+    "luck": 5,
+    "intelligence": 5,
+    "perception": 5
+  }
+}

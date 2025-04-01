@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const gameState = require('./gameState');
 
 function animateMovement(entity, path, steps, io, entityType, callback) {
@@ -180,18 +183,77 @@ module.exports = {
 };
 
 function addPlayer(socket, io) {
-  gameState.players[socket.id] = {
-    id: socket.id,
-    x: 2,
-    y: 2,
-    isTurn: false,
-    actionPoints: 10,
-    health: 24,
-    strength: 3,
-    weaponAttack: 4,
-    weaponRange: 1,
-    sprite: "warrior"
-  };
+  // Retrieve the selected character name from the socket handshake query.
+  const selectedCharacterName = socket.handshake.query.character;
+  
+  // Reject connection if no character name was provided.
+  if (!selectedCharacterName) {
+    socket.emit('error', 'No character selected.');
+    return socket.disconnect();
+  }
+  
+  // Check whether a player with this character is already connected.
+  for (const id in gameState.players) {
+    if (gameState.players[id].name === selectedCharacterName) {
+      socket.emit('error', 'This character is already connected.');
+      return socket.disconnect();
+    }
+  }
+  
+  const charactersDir = "characters";
+  // Sanitize the character name (allowing only letters, numbers, underscore, and hyphen).
+  const safeName = selectedCharacterName.replace(/[^\w\-]/g, '');
+  const filePath = path.join(charactersDir, `${safeName}.json`);
+
+  // Check if the saved character file exists.
+  if (!fs.existsSync(filePath)) {
+    socket.emit('error', 'Character file not found.');
+    return socket.disconnect();
+  }
+  
+  let playerData;
+  try {
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const savedCharacter = JSON.parse(fileContent);
+    
+    // Verify that the saved character has the required fields.
+    if (!savedCharacter.name || !savedCharacter.charClass || !savedCharacter.stats) {
+      socket.emit('error', 'Saved character has missing or invalid data.');
+      return socket.disconnect();
+    }
+
+    console.log(`${savedCharacter.charClass} ${savedCharacter.charClass}`)
+    
+    // Build the player object from the saved character.
+    playerData = {
+      id: socket.id,
+      x: 2,            // Adjust spawn position if needed.
+      y: 2,
+      isTurn: false,
+      actionPoints: 10,
+      health: 24,      // You might recalc or adjust health based on saved stats.
+      // Use stats from the saved file.
+      name: savedCharacter.name,  // This should equal selectedCharacterName.
+      charClass: savedCharacter.charClass,
+      strength: savedCharacter.stats.strength,
+      luck: savedCharacter.stats.luck,
+      intelligence: savedCharacter.stats.intelligence,
+      perception: savedCharacter.stats.perception,
+      // Set sprite key based on class; you may extend this later.
+      sprite: savedCharacter.charClass,
+      // Optionally, add additional computed attributes (e.g., weaponAttack, weaponRange).
+      weaponRange: 1,
+      weaponAttack: 4
+    };
+  } catch (err) {
+    console.error('Error reading character file for', selectedCharacterName, err);
+    socket.emit('error', 'Error reading character file.');
+    return socket.disconnect();
+  }
+  
+  // At this point, all checks have passed.
+  gameState.players[socket.id] = playerData;
+  // Inform this client of initialization data.
   socket.emit('init', { 
     player: gameState.players[socket.id],
     players: gameState.players,
@@ -199,5 +261,6 @@ function addPlayer(socket, io) {
     terrain: gameState.terrain,
     gameMode: gameState.gameMode
   });
+  // Notify other players that a new player has joined.
   socket.broadcast.emit('playerJoined', gameState.players[socket.id]);
 }

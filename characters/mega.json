@@ -1,0 +1,10 @@
+{
+  "name": "mega",
+  "charClass": "mage",
+  "stats": {
+    "strength": 5,
+    "luck": 5,
+    "intelligence": 25,
+    "perception": 5
+  }
+}

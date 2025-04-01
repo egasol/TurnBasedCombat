@@ -1,0 +1,10 @@
+{
+  "name": "Trolol",
+  "charClass": "mercenary",
+  "stats": {
+    "strength": 5,
+    "luck": 25,
+    "intelligence": 5,
+    "perception": 5
+  }
+}

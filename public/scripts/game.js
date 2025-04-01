@@ -1,4 +1,8 @@
-const socket = io();
+const urlParams = new URLSearchParams(window.location.search);
+const selectedCharacterName = urlParams.get('character');
+const socket = io({ query: { character: selectedCharacterName } });
+
+
 let player = null, players = {}, npcs = {}, terrain = [];
 let gameMode = 'free', battleQueue = [];
 let floatingTexts = []; // To store floating damage numbers.
@@ -7,6 +11,8 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const apDisplay = document.getElementById("apDisplay");
 const cellSize = 32;
+
+// socket.emit('selectCharacter', { characterName: selectedCharacterName });
 
 // --- Load Sprites ---
 // Floor sprite (for non-blocking tiles)
@@ -22,8 +28,8 @@ function preloadSprites() {
     bush: "sprites/terrain/bush.png",
     skull_impaled: "sprites/terrain/skull-impaled.png",
     warrior: "sprites/players/warrior.png",
-    warrior: "sprites/players/mage.png",
-    warrior: "sprites/players/mercenary.png",
+    mage: "sprites/players/mage.png",
+    mercenary: "sprites/players/mercenary.png",
     rat: "sprites/monsters/rat.png",
     spider: "sprites/monsters/spider.png",
     pigtoad: "sprites/monsters/pigtoad.png",
@@ -302,7 +308,11 @@ socket.on('init', (data) => {
   });
 });
 
-socket.on('playerJoined', (p) => { players[p.id] = p; });
+// socket.on('playerJoined', (p) => { players[p.id] = p; });
+socket.on('playerJoined', (p) => {
+  players[p.id] = p;
+  console.log(`Player joined: ${p.id} (${p.charClass || ''})`);
+});
 socket.on('playerMoved', (data) => {
   if (players[data.id]) {
     players[data.id].x = data.x;

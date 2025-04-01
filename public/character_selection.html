@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Selection</title>
+</head>
+<body>
+  <h2>Select a Character</h2>
+  <div id="characterList"></div>
+  <button id="startGameButton" disabled>Start Game</button>
+
+  <script>
+    const characterListDiv = document.getElementById('characterList');
+    const startGameButton = document.getElementById('startGameButton');
+    let selectedCharacter = null;
+
+    // Fetch the list of characters from the server
+    fetch('/get-characters')
+      .then(response => response.json())
+      .then(characters => {
+        characters.forEach(character => {
+          const button = document.createElement('button');
+          button.textContent = `${character.name} (${character.charClass})`;
+          button.addEventListener('click', () => {
+            selectedCharacter = character;
+            startGameButton.disabled = false;
+            console.log("Selected character:", character); // Debugging
+          });
+          characterListDiv.appendChild(button);
+        });
+      });
+
+    startGameButton.addEventListener('click', () => {
+      if (selectedCharacter) {
+        window.location.href = `/index.html?character=${encodeURIComponent(selectedCharacter.name)}`;
+      }
+    });
+  </script>
+</body>
+</html>

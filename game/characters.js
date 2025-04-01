@@ -1,0 +1,82 @@
+// characters.js
+const fs = require('fs');
+const path = require('path');
+
+module.exports = function (app) {
+  // Directory where character JSON files will be stored.
+  const charactersDir = "characters" //path.join("characters", 'characters');
+
+  // Create the directory if it doesn't exist.
+  if (!fs.existsSync(charactersDir)) {
+    fs.mkdirSync(charactersDir);
+  }
+
+  /**
+   * POST /save-character
+   * Save a character using the provided JSON data.
+   * Each character is saved as a separate file named `{characterName}.json`.
+   */
+  app.post('/save-character', (req, res) => {
+    const { name, class: charClass, stats } = req.body;
+    if (!name || !charClass || !stats) {
+      return res.status(400).send('Invalid character data');
+    }
+
+    // Sanitize the character name to allow only letters, numbers, underscore and hyphen.
+    const safeName = name.replace(/[^\w\-]/g, '');
+    const fileName = `${safeName}.json`;
+    const filePath = path.join(charactersDir, fileName);
+
+    // Check if the character already exists.
+    if (fs.existsSync(filePath)) {
+      return res.status(409).send('Character name already exists');
+    }
+
+    const characterData = { name, charClass, stats };
+
+    fs.writeFile(filePath, JSON.stringify(characterData, null, 2), (err) => {
+      if (err) {
+        console.error('Error saving character:', err);
+        return res.status(500).send('Internal server error');
+      }
+      console.log('Saved character:', characterData);
+      res.status(200).send('Character saved successfully');
+    });
+  });
+
+  /**
+   * GET /get-characters
+   * Returns the list of saved characters from the privateCharacters directory.
+   *
+   * For demonstration, we require a query parameter (auth=secret-token) for access.
+   * Replace this with your real authentication/authorization strategy.
+   */
+  app.get('/get-characters', (req, res) => {
+    // const { auth } = req.query;
+    // // Simple check: requires "secret-token" to be provided.
+    // if (auth !== 'secret-token') {
+    //   return res.status(403).send('Forbidden');
+    // }
+
+    fs.readdir(charactersDir, (err, files) => {
+      if (err) {
+        console.error('Error reading characters directory:', err);
+        return res.status(500).send('Internal server error');
+      }
+      const characters = [];
+      files.forEach((file) => {
+        if (path.extname(file) === '.json') {
+          const filePath = path.join(charactersDir, file);
+          try {
+            const fileData = fs.readFileSync(filePath, 'utf8');
+            const character = JSON.parse(fileData);
+            characters.push(character);
+          } catch (error) {
+            console.error('Error parsing character file', file, error);
+          }
+        }
+      });
+      res.json(characters);
+    });
+  });
+};
