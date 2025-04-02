@@ -1,0 +1,84 @@
+/* Reset some default styling */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  body {
+	font-family: Arial, sans-serif;
+	background-color: #f3f3f3;
+	color: #333;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  /* Container for the content */
+  .container {
+	width: 90%;
+	max-width: 600px;
+	padding: 40px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	text-align: center;
+  }
+  
+  /* Header style */
+  h2 {
+	margin-bottom: 20px;
+	font-size: 28px;
+  }
+  
+  /* Character list container */
+  .character-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 30px;
+  }
+  
+  /* Style for each character button */
+  .character-list button {
+	padding: 12px 15px;
+	background-color: #4caf50;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+  
+  .character-list button:hover {
+	background-color: #45a049;
+  }
+  
+  /* Highlight selected character */
+  .character-list button.selected {
+	background-color: #2e7d32;
+  }
+  
+  /* Start game button styling */
+  .start-button {
+	padding: 12px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	font-size: 18px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+  
+  .start-button:disabled {
+	background-color: #a0a0a0;
+	cursor: not-allowed;
+  }
+  
+  .start-button:hover:not(:disabled) {
+	background-color: #0069d9;
+  }
+  

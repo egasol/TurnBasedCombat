@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Character Selection</title>
+  <link rel="stylesheet" href="styles-menu.css">
 </head>
 <body>
-  <h2>Select a Character</h2>
-  <div id="characterList"></div>
-  <button id="startGameButton" disabled>Start Game</button>
+  <div class="container">
+    <h2>Select a Character</h2>
+    <div id="characterList" class="character-list"></div>
+    <button id="startGameButton" class="start-button" disabled>Start Game</button>
+  </div>
 
   <script>
     const characterListDiv = document.getElementById('characterList');
@@ -21,13 +24,23 @@
         characters.forEach(character => {
           const button = document.createElement('button');
           button.textContent = `${character.name} (${character.charClass})`;
+          button.classList.add('character-button');
           button.addEventListener('click', () => {
             selectedCharacter = character;
             startGameButton.disabled = false;
+            // Optionally visualize the selection; for example, highlight the selected button:
+            Array.from(characterListDiv.childNodes).forEach(btn => {
+              btn.classList.remove('selected');
+            });
+            button.classList.add('selected');
             console.log("Selected character:", character); // Debugging
           });
           characterListDiv.appendChild(button);
         });
+      })
+      .catch(err => {
+        console.error("Error fetching characters:", err);
+        characterListDiv.textContent = 'Failed to load characters.';
       });
 
     startGameButton.addEventListener('click', () => {
