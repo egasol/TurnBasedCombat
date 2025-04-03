@@ -1,7 +1,9 @@
 // game/gameState.js
+const fs = require('fs');
+const path = require('path');
+
 // --- Global State ---
 const players = {};
-// Enemy NPCs placed in strategic positions within the maze.
 const npcs = {
   'npc1': { id: 'npc1', x: 11, y: 3, friendly: false, health: 20, isInBattle: false, sprite: "rat" },
   'npc2': { id: 'npc2', x: 13, y: 23, friendly: false, health: 20, isInBattle: false, sprite: "rat" },
@@ -9,75 +11,13 @@ const npcs = {
   'npc4': { id: 'npc4', x: 5, y: 17, friendly: false, health: 20, isInBattle: false, sprite: "rat" }
 };
 
-// Maze-like terrain configuration for a 25x25 grid.
-// Note: In a production setting, you might generate repetitive elements (like borders)
-// programmatically rather than listing every object. Here, we mix manually defined objects
-// to illustrate both an outer forest border and internal maze-like partitions.
-
-// --- Outer Border (all cells at the edge) ---
-// Top and bottom borders.
-const terrain = [];
-
-// Top border (y = 0)
-for (let x = 0; x < 25; x++) {
-  terrain.push({ x: x, y: 0, type: "tree", blocksVision: true });
-}
-// Bottom border (y = 24)
-for (let x = 0; x < 25; x++) {
-  terrain.push({ x: x, y: 24, type: "tree", blocksVision: true });
-}
-// Left and right borders (y between 1 and 23)
-for (let y = 1; y < 24; y++) {
-  terrain.push({ x: 0, y: y, type: "tree", blocksVision: true });
-  terrain.push({ x: 24, y: y, type: "tree", blocksVision: true });
-}
-
-// --- Internal Maze Walls ---
-// Vertical walls at x = 6, 12, and 18, with gaps for corridors.
-for (let y = 2; y < 23; y++) {
-  // Wall at x = 6, with gaps at y = 7 and y = 11.
-  if (y !== 7 && y !== 11) {
-    terrain.push({ x: 6, y: y, type: "rock", blocksVision: true });
-  }
-  // Wall at x = 12, with gaps at y = 5 and y = 8 and y = 15.
-  if (y !== 5 && y !== 8 && y !== 15) {
-    terrain.push({ x: 12, y: y, type: "tree", blocksVision: true });
-  }
-  // Wall at x = 18, with a gap at y = 12.
-  if (y !== 12) {
-    terrain.push({ x: 18, y: y, type: "rock", blocksVision: true });
-  }
-}
-
-// Horizontal walls at y = 8 and y = 16.
-// Horizontal wall at y = 8 from x = 2 to 22, gap at x = 12.
-for (let x = 2; x < 23; x++) {
-  if (x !== 12) {
-    terrain.push({ x: x, y: 8, type: "tree", blocksVision: true });
-  }
-}
-// Horizontal wall at y = 16 from x = 2 to 22, gap at x = 18.
-for (let x = 2; x < 23; x++) {
-  if (x !== 18) {
-    terrain.push({ x: x, y: 16, type: "rock", blocksVision: true });
-  }
-}
-
-// --- Decorative/Additional Terrain ---
-// Add some bushes in open areas (do not block vision).
-terrain.push({ x: 3, y: 12, type: "bush", blocksVision: false });
-terrain.push({ x: 4, y: 12, type: "bush", blocksVision: false });
-terrain.push({ x: 20, y: 3, type: "bush", blocksVision: false });
-terrain.push({ x: 21, y: 3, type: "bush", blocksVision: false });
-terrain.push({ x: 10, y: 20, type: "bush", blocksVision: false });
-terrain.push({ x: 11, y: 20, type: "bush", blocksVision: false });
-
-// Optional: Add a few scattered trees for variety
-terrain.push({ x: 16, y: 5, type: "tree", blocksVision: true });
-terrain.push({ x: 7, y: 19, type: "tree", blocksVision: true });
-
 let gameMode = 'free'; // Either "free" or "battle"
 let battleQueue = [];  // Array of objects { type: 'player' or 'npc', id: <id> }
+const terrainPath = path.join("terrains", 'test-terrain.json');
+const terrainConfig = loadTerrain(terrainPath);
+const terrain = terrainConfig.terrain;
+const gridWidth = terrainConfig.gridWidth;
+const gridHeight = terrainConfig.gridHeight;
 
 // --- Helper Functions ---
 function manhattan(x1, y1, x2, y2) {
@@ -89,6 +29,7 @@ function euclidean(x1, y1, x2, y2) {
 function chebyshev(x1, y1, x2, y2) {
   return Math.max(Math.abs(x1 - x2), Math.abs(y1 - y2));
 }
+
 // Assume players and npcs objects are defined in this module.
 function isBlocked(x, y) {
   // Check against terrain.
@@ -105,6 +46,7 @@ function isBlocked(x, y) {
   }
   return false;
 }
+
 // A helper that returns unoccupied neighbor cells of a given target.
 function getAvailableNeighbors(target, gridWidth, gridHeight) {
   const result = [];
@@ -124,6 +66,26 @@ function getAvailableNeighbors(target, gridWidth, gridHeight) {
     result.push({ x: nx, y: ny });
   }
   return result;
+}
+
+function loadTerrain(filePath) {
+  try {
+    const terrainData = fs.readFileSync(filePath, 'utf8');
+    const parsedData = JSON.parse(terrainData);
+
+    if (
+      !Number.isInteger(parsedData.gridWidth) ||
+      !Number.isInteger(parsedData.gridHeight) ||
+      !Array.isArray(parsedData.terrain)
+    ) {
+      throw new Error('Invalid terrain file structure');
+    }
+
+    return parsedData;
+  } catch (err) {
+    console.error('Error loading terrain configuration:', err);
+    return { gridWidth: 25, gridHeight: 25, terrain: [] };
+  }
 }
 
 // --- Battle Mode Functions ---
@@ -283,7 +245,6 @@ function processNpcTurn(npcId, io) {
   }
   
   // Otherwise, compute a destination adjacent to the player.
-  const gridWidth = 25, gridHeight = 25;
   const targetCell = { x: nearestPlayer.x, y: nearestPlayer.y };
   
   // Get available neighbor cells around the target.
@@ -349,7 +310,7 @@ function createGrid(width, height, initialValue) {
  *
  * This implementation uses 2D arrays to store gScore, fScore, and cameFrom values.
  */
-function findPath(from, to, gridWidth = 25, gridHeight = 25) {
+function findPath(from, to, gridWidth, gridHeight) {
   const gScore = createGrid(gridWidth, gridHeight, Infinity);
   const fScore = createGrid(gridWidth, gridHeight, Infinity);
   const cameFrom = createGrid(gridWidth, gridHeight, null);
