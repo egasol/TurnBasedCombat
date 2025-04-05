@@ -105,22 +105,50 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/sprite-sources', (req, res) => {
-    const spriteDir = "public/sprites/terrain"; // spritesDir; //path.join(spritesDir, '');
+  /**
+   * Recursively fetch files from all directories under a root folder.
+   * @param {string} dir - The root directory to scan.
+   * @param {string} rootDirName - The name of the root folder to include in relative paths.
+   * @param {Array<string>} extensions - List of acceptable file extensions.
+   * @returns {Object} - An object mapping file names (without extensions) to their relative paths.
+   */
+   function loadAllSpriteSources(dir, rootDirName, extensions) {
     const spriteSources = {};
 
-    try {
-      const files = fs.readdirSync(spriteDir);
+    function traverseDirectory(currentDir) {
+      const files = fs.readdirSync(currentDir);
+
       files.forEach((file) => {
-        const ext = path.extname(file);
-        const name = path.basename(file, ext); // Remove the file extension
-        if (['.png', '.jpg', '.jpeg'].includes(ext)) { // Acceptable formats
-          spriteSources[name] = `sprites/terrain/${file}`; // Path relative to public folder
+        const fullPath = path.join(currentDir, file);
+        const stat = fs.statSync(fullPath);
+
+        if (stat.isDirectory()) {
+          // Recurse into subdirectories
+          traverseDirectory(fullPath);
+        } else {
+          const ext = path.extname(file).toLowerCase();
+          if (extensions.includes(ext)) {
+            const name = path.basename(file, ext);
+            const relativePath = fullPath.replace("public/", "");
+            spriteSources[name] = relativePath
+          }
         }
       });
+    }
+
+    traverseDirectory(dir);
+    return spriteSources;
+  }
+
+  app.get('/sprite-sources', (req, res) => {
+    const spriteRoot = "public/sprites"
+    const acceptedExtensions = ['.png', '.jpg', '.jpeg'];
+
+    try {
+      const spriteSources = loadAllSpriteSources(spriteRoot, __dirname, acceptedExtensions);
       res.json(spriteSources);
     } catch (err) {
-      console.error('Error loading sprites:', err);
+      console.error('Error loading sprite sources:', err);
       res.status(500).send('Failed to load sprite sources');
     }
   });
