@@ -1,9 +1,6 @@
-const spriteSources = {
-	// This should be dynamically loaded from the server in production
-	rock: "sprites/terrain/rock.png",
-	tree: "sprites/terrain/tree.png",
-	bush: "sprites/terrain/bush.png",
-};
+let spriteSources = {};
+
+getSprites()
 
 const grid = document.getElementById("grid");
 const spritesDiv = document.getElementById("sprites");
@@ -14,21 +11,38 @@ let selectedSprite = null;
 let gridData = [];
 let gridWidth = 25, gridHeight = 25;
 
-// Populate the sprite selector
-Object.entries(spriteSources).forEach(([key, src]) => {
-  const img = document.createElement("img");
-  img.src = src;
-  img.alt = key;
-  img.title = key;
-  console.log(`src: ${src}`);
-  img.classList.add("sprite-option");
-  img.addEventListener("click", () => {
-    selectedSprite = key;
-    document.querySelectorAll(".sprite-option").forEach(el => el.classList.remove("selected"));
-    img.classList.add("selected");
+function getSprites() {
+  fetch('/sprite-sources')
+  .then((response) => response.json())
+  .then((data) => {
+    spriteSources = data;
+    populateSpriteSelector();
+  })
+  .catch((error) => {
+    console.error('Error fetching sprite sources:', error);
   });
-  spritesDiv.appendChild(img);
-});
+
+  spriteSources;
+}
+
+function populateSpriteSelector() {
+  const spritesDiv = document.getElementById("sprites");
+  spritesDiv.innerHTML = ""; // Clear existing sprites
+
+  Object.entries(spriteSources).forEach(([key, src]) => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = key;
+    img.title = key;
+    img.classList.add("sprite-option");
+    img.addEventListener("click", () => {
+      selectedSprite = key;
+      document.querySelectorAll(".sprite-option").forEach(el => el.classList.remove("selected"));
+      img.classList.add("selected");
+    });
+    spritesDiv.appendChild(img);
+  });
+}
 
 // Set grid size and render grid
 setGridButton.addEventListener("click", () => {

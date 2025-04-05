@@ -4,8 +4,8 @@ const path = require('path');
 
 module.exports = function (app) {
   // Directory where character JSON files will be stored.
-  const charactersDir = "characters"
-  const terrainsDir = "terrains"
+  const charactersDir = "characters";
+  const terrainsDir = "terrains";
 
   // Create the directory if it doesn't exist.
   if (!fs.existsSync(charactersDir)) {
@@ -103,5 +103,25 @@ module.exports = function (app) {
       console.log(`Terrain saved successfully as ${safeFilename}`);
       res.status(200).send('Terrain saved successfully.');
     });
-  }); 
+  });
+
+  app.get('/sprite-sources', (req, res) => {
+    const spriteDir = "public/sprites/terrain"; // spritesDir; //path.join(spritesDir, '');
+    const spriteSources = {};
+
+    try {
+      const files = fs.readdirSync(spriteDir);
+      files.forEach((file) => {
+        const ext = path.extname(file);
+        const name = path.basename(file, ext); // Remove the file extension
+        if (['.png', '.jpg', '.jpeg'].includes(ext)) { // Acceptable formats
+          spriteSources[name] = `sprites/terrain/${file}`; // Path relative to public folder
+        }
+      });
+      res.json(spriteSources);
+    } catch (err) {
+      console.error('Error loading sprites:', err);
+      res.status(500).send('Failed to load sprite sources');
+    }
+  });
 };
