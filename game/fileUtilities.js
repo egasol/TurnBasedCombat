@@ -1,10 +1,11 @@
-// characters.js
+// fileUtilities.js
 const fs = require('fs');
 const path = require('path');
 
 module.exports = function (app) {
   // Directory where character JSON files will be stored.
-  const charactersDir = "characters" //path.join("characters", 'characters');
+  const charactersDir = "characters"
+  const terrainsDir = "terrains"
 
   // Create the directory if it doesn't exist.
   if (!fs.existsSync(charactersDir)) {
@@ -79,4 +80,28 @@ module.exports = function (app) {
       res.json(characters);
     });
   });
+
+  app.post('/save-terrain', (req, res) => {
+    const { filename, data } = req.body;
+  
+    // Validate request data
+    if (!filename || !data) {
+      return res.status(400).send('Filename and data are required.');
+    }
+  
+    // Sanitize filename to prevent directory traversal
+    const safeFilename = filename.replace(/[^\w\-]/g, '') + '.json';
+    const filePath = path.join(terrainsDir, safeFilename);
+  
+    // Write data to the file
+    fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
+      if (err) {
+        console.error('Error saving terrain:', err);
+        return res.status(500).send('Failed to save terrain.');
+      }
+  
+      console.log(`Terrain saved successfully as ${safeFilename}`);
+      res.status(200).send('Terrain saved successfully.');
+    });
+  }); 
 };

@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
-require('./game/characters')(app);
+require('./game/fileUtilities')(app);
 
 const server = http.createServer(app);
 const io = socketIo(server);

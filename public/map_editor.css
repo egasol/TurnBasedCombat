@@ -1,0 +1,66 @@
+button {
+  margin: 5px 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.file-management {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+}
+
+.controls label,
+.sprite-selector h3,
+.properties-editor h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.sprite-selector,
+.properties-editor,
+.file-management {
+  border: 1px solid #ddd;
+}
+
+.properties-editor label {
+  display: block;
+  margin: 10px 0;
+}
+
+.grid {
+  display: grid;
+  grid-auto-flow: row; /* Ensure the grid flows in rows */
+  gap: 0; /* Remove spacing between grid cells */
+  justify-content: center; /* Center grid horizontally */
+  align-items: center; /* Center grid vertically */
+}
+
+.grid-cell {
+  width: 32px; /* Fixed width */
+  height: 32px; /* Fixed height */
+  background: #f0f0f0; /* Default background color */
+  background-size: cover; /* Ensure sprites fill the cell */
+  background-position: center;
+  cursor: pointer;
+  border: 1px solid #ccc; /* Optional border for better visualization */
+}

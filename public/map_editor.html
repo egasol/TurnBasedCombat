@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Map Editor</title>
+  <link rel="stylesheet" href="map_editor.css">
+</head>
+<body>
+  <div class="editor-container">
+    <h1>Map Editor</h1>
+
+    <!-- Configuration for Grid Size -->
+    <div class="controls">
+      <label for="gridWidth">Grid Width:</label>
+      <input type="number" id="gridWidth" min="1" value="25">
+      <label for="gridHeight">Grid Height:</label>
+      <input type="number" id="gridHeight" min="1" value="25">
+      <button id="setGridButton">Set Grid Size</button>
+    </div>
+
+    <!-- Sprite Selector -->
+    <div class="sprite-selector">
+      <h3>Select Sprite</h3>
+      <div id="sprites"></div>
+    </div>
+
+    <!-- Grid Display -->
+    <div id="grid" class="grid"></div>
+
+    <!-- Properties Editor -->
+    <div class="properties-editor">
+      <h3>Properties</h3>
+      <label for="blocksVision">
+        <input type="checkbox" id="blocksVision"> Blocks Vision
+      </label>
+      <button id="applyPropertiesButton">Apply</button>
+    </div>
+
+    <!-- File Management -->
+    <div class="file-management">
+      <button id="saveButton">Save Map</button>
+      <input type="file" id="loadFile">
+    </div>
+  </div>
+
+  <script src="scripts/map_editor.js"></script>
+</body>
+</html>
