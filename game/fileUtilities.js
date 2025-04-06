@@ -2,6 +2,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const spriteSources = loadAllSpriteSources("public/sprites", __dirname, ['.png', '.jpg', '.jpeg']);
+
 module.exports = function (app) {
   // Directory where character JSON files will be stored.
   const charactersDir = "characters";
@@ -105,47 +107,8 @@ module.exports = function (app) {
     });
   });
 
-  /**
-   * Recursively fetch files from all directories under a root folder.
-   * @param {string} dir - The root directory to scan.
-   * @param {string} rootDirName - The name of the root folder to include in relative paths.
-   * @param {Array<string>} extensions - List of acceptable file extensions.
-   * @returns {Object} - An object mapping file names (without extensions) to their relative paths.
-   */
-   function loadAllSpriteSources(dir, rootDirName, extensions) {
-    const spriteSources = {};
-
-    function traverseDirectory(currentDir) {
-      const files = fs.readdirSync(currentDir);
-
-      files.forEach((file) => {
-        const fullPath = path.join(currentDir, file);
-        const stat = fs.statSync(fullPath);
-
-        if (stat.isDirectory()) {
-          // Recurse into subdirectories
-          traverseDirectory(fullPath);
-        } else {
-          const ext = path.extname(file).toLowerCase();
-          if (extensions.includes(ext)) {
-            const name = path.basename(file, ext);
-            const relativePath = fullPath.replace("public/", "");
-            spriteSources[name] = relativePath
-          }
-        }
-      });
-    }
-
-    traverseDirectory(dir);
-    return spriteSources;
-  }
-
   app.get('/sprite-sources', (req, res) => {
-    const spriteRoot = "public/sprites"
-    const acceptedExtensions = ['.png', '.jpg', '.jpeg'];
-
     try {
-      const spriteSources = loadAllSpriteSources(spriteRoot, __dirname, acceptedExtensions);
       res.json(spriteSources);
     } catch (err) {
       console.error('Error loading sprite sources:', err);
@@ -153,3 +116,31 @@ module.exports = function (app) {
     }
   });
 };
+
+function loadAllSpriteSources(dir, rootDirName, extensions) {
+  const spriteSources = {};
+
+  function traverseDirectory(currentDir) {
+    const files = fs.readdirSync(currentDir);
+
+    files.forEach((file) => {
+      const fullPath = path.join(currentDir, file);
+      const stat = fs.statSync(fullPath);
+
+      if (stat.isDirectory()) {
+        // Recurse into subdirectories
+        traverseDirectory(fullPath);
+      } else {
+        const ext = path.extname(file).toLowerCase();
+        if (extensions.includes(ext)) {
+          const name = path.basename(file, ext);
+          const relativePath = fullPath.replace("public/", "");
+          spriteSources[name] = relativePath
+        }
+      }
+    });
+  }
+
+  traverseDirectory(dir);
+  return spriteSources;
+}
