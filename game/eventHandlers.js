@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const gameState = require('./gameState');
+const { spriteSources } = require('./fileUtilities');
 
 function animateMovement(entity, path, steps, io, entityType, callback) {
   let currentStep = 0;
@@ -259,7 +260,8 @@ function addPlayer(socket, io) {
     players: gameState.players,
     npcs: gameState.npcs,
     terrain: gameState.terrain,
-    gameMode: gameState.gameMode
+    gameMode: gameState.gameMode,
+    spriteSources: spriteSources
   });
   // Notify other players that a new player has joined.
   socket.broadcast.emit('playerJoined', gameState.players[socket.id]);

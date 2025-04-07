@@ -22,42 +22,11 @@ floorSprite.src = "sprites/floor.png";
 const sprites = {};
 
 function preloadSprites() {
-  const spriteSources = {
-    "rock": "sprites/terrain/rock.png",
-    "tree": "sprites/terrain/tree.png",
-    "bush": "sprites/terrain/bush.png",
-    "skull-impaled": "sprites/terrain/skull-impaled.png",
-    "warrior": "sprites/players/warrior.png",
-    "mage": "sprites/players/mage.png",
-    "mercenary": "sprites/players/mercenary.png",
-    "rat": "sprites/monsters/rat.png",
-    "spider": "sprites/monsters/spider.png",
-    "pigtoad": "sprites/monsters/pigtoad.png",
-    "ogre": "sprites/monsters/ogres/ogre.png",
-    "ogre-axe": "sprites/monsters/ogres/ogre-axe.png",
-    "ogre-warlock": "sprites/monsters/ogres/ogre-warlock.png",
-    "fireplace": "sprites/terrain/fireplace.png",
-    "bucket": "sprites/terrain/bucket.png",
-    "skull-impaled": "sprites/terrain/skull-impaled.png",
-    "chest-open": "sprites/terrain/chest-open.png",
-    "fence": "sprites/terrain/fence.png",
-    "barrel": "sprites/terrain/barrel.png",
-    "wall-stone": "sprites/terrain/wall-stone.png",
-    "goblin": "sprites/monsters/goblins/goblin.png",
-    "goblin-necromancer": "sprites/monsters/goblins/goblin-necromancer.png",
-    "goblin-boss": "sprites/monsters/goblins/goblin-boss.png",
-    "goblin-assasin": "sprites/monsters/goblins/goblin-assasin.png",
-    "goblin-berserker": "sprites/monsters/goblins/goblin-berserker.png",
-    "goblin-scout": "sprites/monsters/goblins/goblin-scout.png",
-  };
-
   for (const name in spriteSources) {
     sprites[name] = new Image();
     sprites[name].src = spriteSources[name];
   }
 }
-
-preloadSprites();
 
 // --- Helper: Linear interpolation.
 function lerp(start, end, amt) {
@@ -311,6 +280,8 @@ socket.on('init', (data) => {
   npcs = data.npcs;
   terrain = data.terrain || [];
   gameMode = data.gameMode;
+  spriteSources = data.spriteSources;
+  preloadSprites();
   Object.values(players).forEach(p => {
     p.renderX = p.x * cellSize;
     p.renderY = p.y * cellSize;

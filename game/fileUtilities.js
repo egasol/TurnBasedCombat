@@ -144,3 +144,5 @@ function loadAllSpriteSources(dir, rootDirName, extensions) {
   traverseDirectory(dir);
   return spriteSources;
 }
+
+module.exports.spriteSources = spriteSources;
