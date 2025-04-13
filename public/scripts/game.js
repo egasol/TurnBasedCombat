@@ -273,6 +273,11 @@ document.getElementById("skipBtn").addEventListener("click", () => {
   socket.emit('skipTurn');
 });
 
+// Trigger loading terrain
+function travel(fileName) {
+  socket.emit('travel', { fileName });
+}
+
 /* Socket.IO Event Handlers */
 socket.on('init', (data) => {
   player = data.player;
@@ -375,5 +380,10 @@ socket.on('damageLog', (message) => {
 });
 
 socket.on('consoleLog', (msg) => { console.log(msg); });
+
+socket.on('terrainUpdated', (newTerrainData) => {
+  terrain = Array.isArray(newTerrainData) ? newTerrainData : Object.values(newTerrainData);
+  console.log('Terrain completely replaced with new data.');
+});
 
 requestAnimationFrame(render);

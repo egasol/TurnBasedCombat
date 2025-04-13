@@ -175,12 +175,27 @@ function removePlayer(socket, io) {
   io.emit('playerDisconnected', { id: socket.id });
 }
 
+function travel(socket, data, io) {
+  console.log(`recieved travel, ${data.fileName}`);
+  const fileName = data.fileName;
+  const filePath = path.join('terrains', data.fileName);
+  try {
+    const terrainConfig = gameState.loadTerrain(filePath);
+    gameState.setTerrain(terrainConfig);
+    io.emit('terrainUpdated', terrainConfig.terrain);
+    console.log('Terrain successfully loaded from file:', fileName);
+  } catch (error) {
+    console.error('Error loading terrain file:', error);
+  }
+}
+
 module.exports = {
   addPlayer: addPlayer,
   handleMove: handleMove,
   handleAttack: handleAttack,
   handleSkipTurn: handleSkipTurn,
-  removePlayer: removePlayer
+  removePlayer: removePlayer,
+  travel: travel,
 };
 
 function addPlayer(socket, io) {

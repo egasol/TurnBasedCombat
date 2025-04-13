@@ -14,10 +14,10 @@ const npcs = {
 let gameMode = 'free'; // Either "free" or "battle"
 let battleQueue = [];  // Array of objects { type: 'player' or 'npc', id: <id> }
 const terrainPath = path.join("terrains", 'test-terrain.json');
-const terrainConfig = loadTerrain(terrainPath);
-const terrain = terrainConfig.terrain;
-const gridWidth = terrainConfig.gridWidth;
-const gridHeight = terrainConfig.gridHeight;
+let terrainConfig = loadTerrain(terrainPath);
+let terrain = terrainConfig.terrain;
+let gridWidth = terrainConfig.gridWidth;
+let gridHeight = terrainConfig.gridHeight;
 
 // --- Helper Functions ---
 function manhattan(x1, y1, x2, y2) {
@@ -66,6 +66,12 @@ function getAvailableNeighbors(target, gridWidth, gridHeight) {
     result.push({ x: nx, y: ny });
   }
   return result;
+}
+
+function setTerrain(terrainConfig) {
+  terrain = terrainConfig.terrain;
+  gridWidth = terrainConfig.gridWidth;
+  gridHeight = terrainConfig.gridHeight;
 }
 
 function loadTerrain(filePath) {
@@ -398,5 +404,7 @@ module.exports = {
   initBattleMode,
   cleanupBattleQueue,
   finishTurn,
-  processNpcTurn
+  processNpcTurn,
+  loadTerrain,
+  setTerrain
 };

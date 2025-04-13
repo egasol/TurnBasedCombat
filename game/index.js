@@ -8,4 +8,5 @@ module.exports = {
   handleAttack: eventHandlers.handleAttack,
   handleSkipTurn: eventHandlers.handleSkipTurn,
   removePlayer: eventHandlers.removePlayer,
+  travel: eventHandlers.travel,
 };

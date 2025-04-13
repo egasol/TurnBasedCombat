@@ -33,6 +33,9 @@ io.on('connection', (socket) => {
     game.removePlayer(socket, io);
     console.log(`Player disconnected: ${socket.id}`);
   });
+  socket.on('travel', (data) => {
+    game.travel(socket, data, io);
+  });
 });
 
 server.listen(3000, () => {

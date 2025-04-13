@@ -1,15 +1,462 @@
 {
-    "gridWidth": 25,
-    "gridHeight": 25,
-    "terrain": [
-        { "x": 2, "y": 4, "type": "tree", "blocksVision": true },
-        { "x": 5, "y": 3, "type": "rock", "blocksVision": true },
-        { "x": 9, "y": 6, "type": "bush", "blocksVision": false },
-        { "x": 12, "y": 8, "type": "tree", "blocksVision": true },
-        { "x": 13, "y": 8, "type": "rock", "blocksVision": true },
-        { "x": 14, "y": 12, "type": "bush", "blocksVision": false },
-        { "x": 17, "y": 4, "type": "tree", "blocksVision": true },
-        { "x": 20, "y": 6, "type": "rock", "blocksVision": true },
-        { "x": 22, "y": 14, "type": "bush", "blocksVision": false }
-    ]
+  "gridWidth": 25,
+  "gridHeight": 25,
+  "terrain": [
+    {
+      "x": 16,
+      "y": 0,
+      "type": "rocks3",
+      "blocksVision": false
+    },
+    {
+      "x": 22,
+      "y": 0,
+      "type": "skull-impaled",
+      "blocksVision": false
+    },
+    {
+      "x": 11,
+      "y": 1,
+      "type": "fall_tree4",
+      "blocksVision": false
+    },
+    {
+      "x": 14,
+      "y": 1,
+      "type": "fall_tree1",
+      "blocksVision": false
+    },
+    {
+      "x": 18,
+      "y": 1,
+      "type": "fall_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 20,
+      "y": 1,
+      "type": "ghoul",
+      "blocksVision": false
+    },
+    {
+      "x": 12,
+      "y": 2,
+      "type": "fall_tree1",
+      "blocksVision": false
+    },
+    {
+      "x": 16,
+      "y": 2,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 24,
+      "y": 2,
+      "type": "skeleton",
+      "blocksVision": false
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 12,
+      "y": 3,
+      "type": "oak_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 18,
+      "y": 3,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 22,
+      "y": 3,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 14,
+      "y": 4,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 15,
+      "y": 4,
+      "type": "fall_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 16,
+      "y": 4,
+      "type": "fall_tree4",
+      "blocksVision": false
+    },
+    {
+      "x": 17,
+      "y": 4,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 19,
+      "y": 4,
+      "type": "fall_tree4",
+      "blocksVision": false
+    },
+    {
+      "x": 9,
+      "y": 5,
+      "type": "wolf1",
+      "blocksVision": false
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "type": "oak_tree",
+      "blocksVision": false
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "type": "oak_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 16,
+      "y": 5,
+      "type": "fall_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "type": "fall_tree1",
+      "blocksVision": false
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "type": "fall_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 20,
+      "y": 5,
+      "type": "fall_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 22,
+      "y": 5,
+      "type": "fall_tree4",
+      "blocksVision": false
+    },
+    {
+      "x": 24,
+      "y": 5,
+      "type": "spider",
+      "blocksVision": false
+    },
+    {
+      "x": 18,
+      "y": 6,
+      "type": "oak_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 19,
+      "y": 6,
+      "type": "fall_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "type": "oak_tree",
+      "blocksVision": false
+    },
+    {
+      "x": 6,
+      "y": 7,
+      "type": "oak_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 10,
+      "y": 7,
+      "type": "oak_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "type": "deer",
+      "blocksVision": false
+    },
+    {
+      "x": 15,
+      "y": 7,
+      "type": "fall_tree1",
+      "blocksVision": false
+    },
+    {
+      "x": 19,
+      "y": 7,
+      "type": "fall_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 20,
+      "y": 7,
+      "type": "fall_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 23,
+      "y": 7,
+      "type": "fall_tree2",
+      "blocksVision": false
+    },
+    {
+      "x": 8,
+      "y": 8,
+      "type": "oak_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 21,
+      "y": 8,
+      "type": "fall_tree1",
+      "blocksVision": false
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "type": "grizzly",
+      "blocksVision": false
+    },
+    {
+      "x": 9,
+      "y": 10,
+      "type": "rocks5",
+      "blocksVision": false
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "type": "hedgehog",
+      "blocksVision": false
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "type": "tree",
+      "blocksVision": false
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "type": "oak_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 17,
+      "y": 10,
+      "type": "oak_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 20,
+      "y": 10,
+      "type": "oak_tree",
+      "blocksVision": false
+    },
+    {
+      "x": 22,
+      "y": 10,
+      "type": "fall_tree4",
+      "blocksVision": false
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "type": "tree",
+      "blocksVision": false
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "type": "oak_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 11,
+      "y": 12,
+      "type": "rocks4",
+      "blocksVision": false
+    },
+    {
+      "x": 17,
+      "y": 12,
+      "type": "rocks4",
+      "blocksVision": false
+    },
+    {
+      "x": 22,
+      "y": 12,
+      "type": "squirrel",
+      "blocksVision": false
+    },
+    {
+      "x": 3,
+      "y": 13,
+      "type": "tree_small",
+      "blocksVision": false
+    },
+    {
+      "x": 16,
+      "y": 13,
+      "type": "oak_tree3",
+      "blocksVision": false
+    },
+    {
+      "x": 18,
+      "y": 13,
+      "type": "tree",
+      "blocksVision": false
+    },
+    {
+      "x": 5,
+      "y": 14,
+      "type": "berry_bush",
+      "blocksVision": false
+    },
+    {
+      "x": 7,
+      "y": 14,
+      "type": "bush",
+      "blocksVision": false
+    },
+    {
+      "x": 13,
+      "y": 14,
+      "type": "badger",
+      "blocksVision": false
+    },
+    {
+      "x": 16,
+      "y": 15,
+      "type": "rocks5",
+      "blocksVision": false
+    },
+    {
+      "x": 17,
+      "y": 15,
+      "type": "rocks4",
+      "blocksVision": false
+    },
+    {
+      "x": 14,
+      "y": 16,
+      "type": "rat",
+      "blocksVision": false
+    },
+    {
+      "x": 20,
+      "y": 16,
+      "type": "fox",
+      "blocksVision": false
+    },
+    {
+      "x": 1,
+      "y": 17,
+      "type": "barrel",
+      "blocksVision": false
+    },
+    {
+      "x": 3,
+      "y": 17,
+      "type": "barrel",
+      "blocksVision": false
+    },
+    {
+      "x": 18,
+      "y": 17,
+      "type": "rocks5",
+      "blocksVision": false
+    },
+    {
+      "x": 22,
+      "y": 17,
+      "type": "rocks2",
+      "blocksVision": false
+    },
+    {
+      "x": 14,
+      "y": 18,
+      "type": "tree_small",
+      "blocksVision": false
+    },
+    {
+      "x": 17,
+      "y": 18,
+      "type": "raven",
+      "blocksVision": false
+    },
+    {
+      "x": 10,
+      "y": 19,
+      "type": "bush",
+      "blocksVision": false
+    },
+    {
+      "x": 15,
+      "y": 19,
+      "type": "rocks4",
+      "blocksVision": false
+    },
+    {
+      "x": 20,
+      "y": 19,
+      "type": "rocks1",
+      "blocksVision": false
+    },
+    {
+      "x": 4,
+      "y": 20,
+      "type": "bucket",
+      "blocksVision": false
+    },
+    {
+      "x": 20,
+      "y": 21,
+      "type": "rocks3",
+      "blocksVision": false
+    },
+    {
+      "x": 18,
+      "y": 22,
+      "type": "rocks1",
+      "blocksVision": false
+    }
+  ]
 }
