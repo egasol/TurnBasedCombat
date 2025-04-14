@@ -7,20 +7,23 @@ const spritesDiv = document.getElementById("sprites");
 const setGridButton = document.getElementById("setGridButton");
 const saveButton = document.getElementById("saveButton");
 const loadFileInput = document.getElementById("loadFile");
+
 let selectedSprite = null;
 let gridData = [];
-let gridWidth = 25, gridHeight = 25;
+let gridWidth = 25
+let gridHeight = 25;
+let mode = 'terrain';
 
 function getSprites() {
   fetch('/sprite-sources')
-  .then((response) => response.json())
-  .then((data) => {
-    spriteSources = data;
-    populateSpriteSelector();
-  })
-  .catch((error) => {
-    console.error('Error fetching sprite sources:', error);
-  });
+    .then((response) => response.json())
+    .then((data) => {
+      spriteSources = data;
+      populateSpriteSelector();
+    })
+    .catch((error) => {
+      console.error('Error fetching sprite sources:', error);
+    });
 
   spriteSources;
 }
@@ -44,6 +47,7 @@ function populateSpriteSelector() {
   });
 }
 
+
 // Set grid size and render grid
 setGridButton.addEventListener("click", () => {
   gridWidth = parseInt(document.getElementById("gridWidth").value);
@@ -51,32 +55,88 @@ setGridButton.addEventListener("click", () => {
   renderGrid();
 });
 
-function renderGrid() {
-  grid.innerHTML = ""; // Clear the grid
+// --- Mode controls ---
+document.getElementById("terrainModeButton").addEventListener("click", () => {
+  mode = 'terrain';
+  console.log("Switched to TERRAIN editing mode");
+});
+document.getElementById("backgroundModeButton").addEventListener("click", () => {
+  mode = 'background';
+  console.log("Switched to BACKGROUND editing mode");
+});
 
-  // Define the CSS grid structure based on fixed tile size
+// Render grid function adjusted to use nested layers per cell
+function renderGrid() {
+  const grid = document.getElementById("grid");
+  grid.innerHTML = ""; // Clear existing grid
+
+  // Set up grid dimensions (using CSS grid layout)
   grid.style.gridTemplateColumns = `repeat(${gridWidth}, 32px)`;
   grid.style.gridTemplateRows = `repeat(${gridHeight}, 32px)`;
 
-  // Reset the grid data
+  // Initialize gridData as a 2D array where each cell is an object with two layers:
   gridData = Array.from({ length: gridHeight }, () =>
-    Array.from({ length: gridWidth }, () => null)
+    Array.from({ length: gridWidth }, () => ({ terrain: null, background: "grass" }))
   );
 
-  // Populate the grid with cells
+  // Create grid cells
   for (let y = 0; y < gridHeight; y++) {
     for (let x = 0; x < gridWidth; x++) {
-      const cell = document.createElement("div");
-      cell.classList.add("grid-cell");
+      const cell = createCell();
+
+      // Update the cell display based on current gridData properties
+      updateCellDisplay(cell, gridData[y][x]);
+
+      // When clicking, update the appropriate layer
       cell.addEventListener("click", () => {
-        if (selectedSprite) {
-          cell.style.backgroundImage = `url(${spriteSources[selectedSprite]})`;
-          gridData[y][x] = { x, y, type: selectedSprite, blocksVision: false };
+        if (!selectedSprite) return; // nothing selected
+
+        if (mode === 'terrain') {
+          gridData[y][x].terrain = {
+            sprite: selectedSprite,
+            properties: { blockingVision: true }
+          };
+        } else if (mode === 'background') {
+          gridData[y][x].background = selectedSprite;
         }
+        updateCellDisplay(cell, gridData[y][x]);
       });
+
       grid.appendChild(cell);
     }
   }
+}
+
+// Helper function to create a grid cell with two layers
+function createCell() {
+  const cell = document.createElement("div");
+  cell.classList.add("grid-cell");
+
+  // Create the background layer div
+  const bgDiv = document.createElement("div");
+  bgDiv.classList.add("cell-background");
+
+  // Create the terrain layer div
+  const terrainDiv = document.createElement("div");
+  terrainDiv.classList.add("cell-terrain");
+
+  // Append both layers to the cell container
+  cell.appendChild(bgDiv);
+  cell.appendChild(terrainDiv);
+  return cell;
+}
+
+// Function to update a cell's visual appearance
+function updateCellDisplay(cell, cellData) {
+  // Each cell is assumed to have two child nodes:
+  // first child: .cell-background, second child: .cell-terrain
+  const bgDiv = cell.querySelector(".cell-background");
+  const terrainDiv = cell.querySelector(".cell-terrain");
+
+  // Update background layer — if a background sprite is set, otherwise blank
+  bgDiv.style.backgroundImage = cellData.background ? `url(${spriteSources[cellData.background]})` : "";
+  // Update terrain layer similarly
+  terrainDiv.style.backgroundImage = cellData.terrain ? `url(${spriteSources[cellData.terrain.sprite]})` : "";
 }
 
 // Save the map to a file
@@ -122,13 +182,13 @@ loadFileInput.addEventListener("change", (event) => {
     gridWidth = mapData.gridWidth;
     gridHeight = mapData.gridHeight;
     gridData = Array.from({ length: gridHeight }, (_, y) =>
-    Array.from({ length: gridWidth }, (_, x) => mapData.terrain.find(t => t.x === x && t.y === y) || null)
+      Array.from({ length: gridWidth }, (_, x) => mapData.terrain.find(t => t.x === x && t.y === y) || null)
     );
     renderGrid();
     // Populate the grid based on loaded data
     mapData.terrain.forEach(t => {
-    const cell = grid.children[t.y * gridWidth + t.x];
-    cell.style.backgroundImage = `url(${spriteSources[t.type]})`;
+      const cell = grid.children[t.y * gridWidth + t.x];
+      cell.style.backgroundImage = `url(${spriteSources[t.type]})`;
     });
   };
   reader.readAsText(file);

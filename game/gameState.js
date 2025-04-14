@@ -84,13 +84,45 @@ function loadTerrain(filePath) {
       !Number.isInteger(parsedData.gridHeight) ||
       !Array.isArray(parsedData.terrain)
     ) {
-      throw new Error('Invalid terrain file structure');
+      throw new Error('Invalid terrain file structure: grid dimensions or terrain array missing');
     }
 
-    return parsedData;
-  } catch (err) {
+    const width = parsedData.gridWidth;
+    const height = parsedData.gridHeight;
+
+    if (parsedData.terrain.length !== width * height) {
+      throw new Error('Invalid terrain file structure: terrain array length does not match grid dimensions');
+    }
+
+    const newTerrainArray = [];
+    const newBackgroundArray = [];
+
+    for (let i = 0; i < parsedData.terrain.length; i++) {
+      const cell = parsedData.terrain[i];
+      const x = i % width;
+      const y = Math.floor(i / width);
+
+      if (cell.terrain) {
+        newTerrainArray.push({
+          x: x,
+          y: y,
+          type: cell.terrain.sprite,
+          blocksVision: cell.terrain.properties.blockingVision
+        });
+      }
+      newBackgroundArray.push(cell.background || null);
+    }
+
+    return {
+      gridWidth: width,
+      gridHeight: height,
+      terrain: newTerrainArray,
+      background: newBackgroundArray
+    };
+  }
+  catch (err) {
     console.error('Error loading terrain configuration:', err);
-    return { gridWidth: 25, gridHeight: 25, terrain: [] };
+    return null;
   }
 }
 
@@ -104,7 +136,7 @@ function checkBattleOver(io) {
     io.emit('battleEnded', { gameMode, players, npcs, terrain });
     return;
   }
-  
+
   // Check if any NPC is still engaged in battle.
   const engagedNpcExists = Object.values(npcs).some(npc => npc.isInBattle);
 
@@ -151,11 +183,11 @@ function initBattleMode(io) {
 function finishTurn(io) {
   // Clean up battleQueue (remove dead players or NPCs, if necessary)
   cleanupBattleQueue();
-  
+
   // Call checkBattleOver to see if battle mode should naturally end.
   checkBattleOver(io);
   if (gameMode !== 'battle') return;
-  
+
   if (battleQueue.length === 0) return;
   const current = battleQueue.shift();
   if (current.type === 'player' && players[current.id]) {
@@ -163,7 +195,7 @@ function finishTurn(io) {
   } else if (current.type === 'npc' && npcs[current.id]) {
     npcs[current.id].isTurn = false;
   }
-  
+
   // Rebuild battleQueue if needed.
   if (battleQueue.length === 0) {
     battleQueue = [];
@@ -172,7 +204,7 @@ function finishTurn(io) {
       if (!npcs[npcId].friendly)
         battleQueue.push({ type: 'npc', id: npcId });
   }
-  
+
   cleanupBattleQueue();
 
   const next = battleQueue[0];
@@ -202,7 +234,7 @@ function processNpcTurn(npcId, io) {
     finishTurn(io);
     return;
   }
-  
+
   let nearestPlayer = null;
   let nearestDist = Infinity;
   for (const pid in players) {
@@ -217,7 +249,7 @@ function processNpcTurn(npcId, io) {
     finishTurn(io);
     return;
   }
-  
+
   // If already adjacent (1 tile away), attack immediately.
   if (nearestDist <= 1) {
     if (npc.actionPoints >= 4) {
@@ -249,10 +281,10 @@ function processNpcTurn(npcId, io) {
       return;
     }
   }
-  
+
   // Otherwise, compute a destination adjacent to the player.
   const targetCell = { x: nearestPlayer.x, y: nearestPlayer.y };
-  
+
   // Get available neighbor cells around the target.
   let available = getAvailableNeighbors(targetCell, gridWidth, gridHeight);
   let destination;
@@ -260,18 +292,18 @@ function processNpcTurn(npcId, io) {
     // Choose the one closest to the NPC.
     destination = available.reduce((best, current) => {
       return (chebyshev(npc.x, npc.y, current.x, current.y) < chebyshev(npc.x, npc.y, best.x, best.y))
-             ? current : best;
+        ? current : best;
     });
   } else {
     destination = targetCell;
   }
-  
+
   const path = findPath({ x: npc.x, y: npc.y }, destination, gridWidth, gridHeight);
   if (!path) {
     finishTurn(io);
     return;
   }
-  
+
   if (path.length > 1) {
     if (npc.actionPoints >= 1) {
       const nextStep = path[1];

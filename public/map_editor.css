@@ -53,14 +53,37 @@ input[type="file"] {
   gap: 0; /* Remove spacing between grid cells */
   justify-content: center; /* Center grid horizontally */
   align-items: center; /* Center grid vertically */
+  gap: 1px;
 }
 
 .grid-cell {
-  width: 32px; /* Fixed width */
-  height: 32px; /* Fixed height */
-  background: #f0f0f0; /* Default background color */
-  background-size: cover; /* Ensure sprites fill the cell */
-  background-position: center;
+  width: 32px;
+  height: 32px;
+  position: relative; /* so that inner elements can be positioned absolutely */
+  overflow: hidden;
+}
+
+.sprite-option {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
   cursor: pointer;
-  border: 1px solid #ccc; /* Optional border for better visualization */
+  border: 2px solid transparent; /* Default, no border */
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.sprite-option.selected {
+  border-color: blue; /* Change the border color when selected */
+  transform: scale(1.1); /* Optional: slightly scale the image */
+}
+
+.cell-background,
+.cell-terrain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
