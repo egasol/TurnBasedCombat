@@ -16,6 +16,7 @@ let battleQueue = [];  // Array of objects { type: 'player' or 'npc', id: <id> }
 const terrainPath = path.join("terrains", 'test-terrain.json');
 let terrainConfig = loadTerrain(terrainPath);
 let terrain = terrainConfig.terrain;
+let background = terrainConfig.background;
 let gridWidth = terrainConfig.gridWidth;
 let gridHeight = terrainConfig.gridHeight;
 
@@ -70,6 +71,7 @@ function getAvailableNeighbors(target, gridWidth, gridHeight) {
 
 function setTerrain(terrainConfig) {
   terrain = terrainConfig.terrain;
+  background = terrainConfig.background;
   gridWidth = terrainConfig.gridWidth;
   gridHeight = terrainConfig.gridHeight;
 }
@@ -424,6 +426,7 @@ module.exports = {
   players,
   npcs,
   terrain,
+  background,
   get gameMode() { return gameMode; },
   set gameMode(mode) { gameMode = mode; },
   battleQueue,

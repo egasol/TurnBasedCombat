@@ -182,7 +182,7 @@ function travel(socket, data, io) {
   try {
     const terrainConfig = gameState.loadTerrain(filePath);
     gameState.setTerrain(terrainConfig);
-    io.emit('terrainUpdated', terrainConfig.terrain);
+    io.emit('terrainUpdated', terrainConfig);
     console.log('Terrain successfully loaded from file:', fileName);
   } catch (error) {
     console.error('Error loading terrain file:', error);
@@ -275,6 +275,7 @@ function addPlayer(socket, io) {
     players: gameState.players,
     npcs: gameState.npcs,
     terrain: gameState.terrain,
+    background: gameState.background,
     gameMode: gameState.gameMode,
     spriteSources: spriteSources
   });

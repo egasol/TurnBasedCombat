@@ -3,7 +3,7 @@ const selectedCharacterName = urlParams.get('character');
 const socket = io({ query: { character: selectedCharacterName } });
 
 
-let player = null, players = {}, npcs = {}, terrain = [];
+let player = null, players = {}, npcs = {}, terrain = [], background = [];
 let gameMode = 'free', battleQueue = [];
 let floatingTexts = []; // To store floating damage numbers.
 
@@ -11,13 +11,6 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const apDisplay = document.getElementById("apDisplay");
 const cellSize = 32;
-
-// socket.emit('selectCharacter', { characterName: selectedCharacterName });
-
-// --- Load Sprites ---
-// Floor sprite (for non-blocking tiles)
-const floorSprite = new Image();
-floorSprite.src = "sprites/floor.png";
 
 const sprites = {};
 
@@ -30,7 +23,7 @@ function preloadSprites() {
 
 // --- Helper: Linear interpolation.
 function lerp(start, end, amt) {
-return start + (end - start) * amt;
+  return start + (end - start) * amt;
 }
 
 function updateGameMode(mode) {
@@ -102,14 +95,39 @@ function isBlockedByTerrain(playerX, playerY, targetX, targetY, terrain) {
   return false;
 }
 
-function drawFloorTiles(ctx, floorSprite, cols, rows) {
-	if (floorSprite.complete) {
-	  for (let i = 0; i < cols; i++) {
-		  for (let j = 0; j < rows; j++) {
-        ctx.drawImage(floorSprite, i * cellSize, j * cellSize, cellSize, cellSize);
+/**
+ * Draws floor tiles using the background data.
+ *
+ * @param {CanvasRenderingContext2D} ctx - The canvas drawing context.
+ * @param {Array} backgroundData - A flat array of background sprite keys (one per tile).
+ * @param {number} cols - The number of columns in the grid.
+ * @param {number} rows - The number of rows in the grid.
+ * @param {number} cellSize - The pixel size of each cell.
+ */
+function drawFloorTiles(ctx, backgroundData, sprites, cols, rows, cellSize) {
+  if (!backgroundData || !Array.isArray(backgroundData)) {
+    console.log("neee");
+    return;
+  }
+  if (backgroundData.length < cols * rows) {
+    console.log("bg len:", backgroundData.length);
+    return;
+  }
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      // Calculate the index in the flat array.
+      const index = j * cols + i;
+      // Get the background key for this tile.
+      const bgKey = backgroundData[index];
+
+      // Fetch the image element using the key from spriteSources.
+      const sprite = sprites[bgKey];
+      // If the sprite exists and is loaded, draw it.
+      if (sprite && sprite.complete) {
+        ctx.drawImage(sprite, i * cellSize, j * cellSize, cellSize, cellSize);
       }
     }
-	}
+  }
 }
 
 function drawGridLines(ctx, cols, rows) {
@@ -141,12 +159,12 @@ function drawTerrain(ctx, terrain, sprites) {
 }
 
 function updateEntityRender(entity) {
-	if (entity.renderX === undefined) {
-	entity.renderX = entity.x * cellSize;
-	entity.renderY = entity.y * cellSize;
-	}
-	entity.renderX = lerp(entity.renderX, entity.x * cellSize, 0.2);
-	entity.renderY = lerp(entity.renderY, entity.y * cellSize, 0.2);
+  if (entity.renderX === undefined) {
+    entity.renderX = entity.x * cellSize;
+    entity.renderY = entity.y * cellSize;
+  }
+  entity.renderX = lerp(entity.renderX, entity.x * cellSize, 0.2);
+  entity.renderY = lerp(entity.renderY, entity.y * cellSize, 0.2);
 }
 
 function drawPlayers(ctx, players, sprites) {
@@ -234,7 +252,7 @@ function render() {
 
   const visibleTiles = calculateVisibleTiles(players[socket.id], terrain, cols, rows);
 
-  drawFloorTiles(ctx, floorSprite, cols, rows);
+  drawFloorTiles(ctx, background, sprites, cols, rows, cellSize);
   drawTerrain(ctx, terrain, sprites);
   drawPlayers(ctx, players, sprites);
   drawNPCs(ctx, npcs, sprites);
@@ -256,8 +274,8 @@ canvas.addEventListener('click', (event) => {
   for (let npcId in npcs) {
     let npc = npcs[npcId];
     if (npc.x === cellX && npc.y === cellY) {
-    clickedNpc = npc;
-    break;
+      clickedNpc = npc;
+      break;
     }
   }
   if (clickedNpc) {
@@ -284,6 +302,8 @@ socket.on('init', (data) => {
   players = data.players;
   npcs = data.npcs;
   terrain = data.terrain || [];
+  background = data.background;
+  console.log("background", background);
   gameMode = data.gameMode;
   spriteSources = data.spriteSources;
   preloadSprites();
@@ -374,15 +394,16 @@ socket.on('damageLog', (message) => {
     logDiv.appendChild(p);
     // Optionally, limit to last 10 messages.
     if (logDiv.childNodes.length > 10) {
-    logDiv.removeChild(logDiv.firstChild);
+      logDiv.removeChild(logDiv.firstChild);
     }
   }
 });
 
 socket.on('consoleLog', (msg) => { console.log(msg); });
 
-socket.on('terrainUpdated', (newTerrainData) => {
-  terrain = Array.isArray(newTerrainData) ? newTerrainData : Object.values(newTerrainData);
+socket.on('terrainUpdated', (map) => {
+  terrain = map.terrain;
+  background = map.background;
   console.log('Terrain completely replaced with new data.');
 });
 
