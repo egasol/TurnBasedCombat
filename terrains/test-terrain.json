@@ -3,455 +3,12 @@
   "gridHeight": 25,
   "terrain": [
     {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
+      "terrain": {
+        "sprite": "oak_tree2",
+        "properties": {
+          "blockingVision": true
+        }
+      },
       "background": "grass"
     },
     {
@@ -460,7 +17,7 @@
     },
     {
       "terrain": {
-        "sprite": "oak_tree3",
+        "sprite": "oak_tree2",
         "properties": {
           "blockingVision": true
         }
@@ -469,34 +26,7 @@
     },
     {
       "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
+        "sprite": "tree",
         "properties": {
           "blockingVision": true
         }
@@ -512,374 +42,12 @@
       "background": "grass"
     },
     {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
       "terrain": {
-        "sprite": "oak_tree",
+        "sprite": "oak_tree2",
         "properties": {
           "blockingVision": true
         }
       },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
       "background": "grass"
     },
     {
@@ -896,8 +64,84 @@
       "background": "grass"
     },
     {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
       "terrain": {
-        "sprite": "oak_tree",
+        "sprite": "oak_tree2",
         "properties": {
           "blockingVision": true
         }
@@ -905,112 +149,16 @@
       "background": "grass"
     },
     {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
       "terrain": null,
       "background": "grass"
     },
     {
       "terrain": {
-        "sprite": "rocks5",
+        "sprite": "oak_tree2",
         "properties": {
           "blockingVision": true
         }
       },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
       "background": "grass"
     },
     {
@@ -1020,285 +168,6 @@
           "blockingVision": true
         }
       },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "pine",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "wolf1",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "wolf1",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "rocks5",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree3",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "bush",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "wolf1",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "wolf1",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "oak_tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
       "background": "grass"
     },
     {
@@ -1332,8 +201,91 @@
       "background": "grass"
     },
     {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
       "terrain": {
-        "sprite": "bush",
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "oak_tree2",
         "properties": {
           "blockingVision": true
         }
@@ -1355,11 +307,63 @@
     },
     {
       "terrain": {
-        "sprite": "rocks5",
+        "sprite": "tree",
         "properties": {
           "blockingVision": true
         }
       },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "tree",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "tree",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "tree",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "tree",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
       "background": "grass"
     },
     {
@@ -1384,7 +388,16 @@
     },
     {
       "terrain": {
-        "sprite": "skull-impaled",
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
         "properties": {
           "blockingVision": true
         }
@@ -1393,19 +406,11 @@
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
@@ -1437,114 +442,12 @@
       "background": "grass"
     },
     {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
       "terrain": {
         "sprite": "tree",
         "properties": {
           "blockingVision": true
         }
       },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "gravestone1",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
       "background": "grass"
     },
     {
@@ -1573,207 +476,6 @@
       "background": "grass"
     },
     {
-      "terrain": {
-        "sprite": "tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "wolf1",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "barrel",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "storage_liquor",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "candle",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "table",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "chair",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "gravestone2",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "tree",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "bush",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "chest-closed",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
       "terrain": null,
       "background": "grass"
     },
@@ -1807,49 +509,7 @@
     },
     {
       "terrain": {
-        "sprite": "skeleton",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "ghoul",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "tree",
+        "sprite": "wall-stone",
         "properties": {
           "blockingVision": true
         }
@@ -1858,16 +518,7 @@
     },
     {
       "terrain": {
-        "sprite": "bush",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "tree",
+        "sprite": "wall-stone",
         "properties": {
           "blockingVision": true
         }
@@ -1876,69 +527,15 @@
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "wolf1",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": {
-        "sprite": "skull-impaled",
-        "properties": {
-          "blockingVision": true
-        }
-      },
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
@@ -1987,7 +584,7 @@
     },
     {
       "terrain": {
-        "sprite": "bush",
+        "sprite": "tree",
         "properties": {
           "blockingVision": true
         }
@@ -2011,12 +608,59 @@
       "background": "grass"
     },
     {
+      "terrain": {
+        "sprite": "tree",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "tree",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
       "terrain": null,
       "background": "grass"
     },
     {
       "terrain": null,
       "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
     },
     {
       "terrain": null,
@@ -2052,7 +696,28 @@
     },
     {
       "terrain": {
-        "sprite": "ghoul",
+        "sprite": "rocks4",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "tree",
         "properties": {
           "blockingVision": true
         }
@@ -2061,7 +726,7 @@
     },
     {
       "terrain": {
-        "sprite": "skeleton",
+        "sprite": "tree",
         "properties": {
           "blockingVision": true
         }
@@ -2069,71 +734,12 @@
       "background": "grass"
     },
     {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
+      "terrain": {
+        "sprite": "tree",
+        "properties": {
+          "blockingVision": true
+        }
+      },
       "background": "grass"
     },
     {
@@ -2154,7 +760,16 @@
     },
     {
       "terrain": {
-        "sprite": "ghoul",
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
         "properties": {
           "blockingVision": true
         }
@@ -2163,39 +778,19 @@
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
-    },
-    {
-      "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
@@ -2267,7 +862,7 @@
     },
     {
       "terrain": {
-        "sprite": "skeleton",
+        "sprite": "wall-stone",
         "properties": {
           "blockingVision": true
         }
@@ -2276,7 +871,696 @@
     },
     {
       "terrain": {
-        "sprite": "bones1",
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "wall-stone",
         "properties": {
           "blockingVision": true
         }
@@ -2329,6 +1613,201 @@
     },
     {
       "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "tree_small",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
@@ -2369,6 +1848,215 @@
     },
     {
       "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "tree_small",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "grass"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": null,
+      "background": "cobblestone"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
@@ -2405,54 +2093,99 @@
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "cobblestone"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
@@ -2473,18 +2206,124 @@
     },
     {
       "terrain": {
-        "sprite": "bones1",
+        "sprite": "water",
         "properties": {
-          "blockingVision": true
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "wooden_floor"
+    },
+    {
+      "terrain": null,
+      "background": "wooden_floor"
+    },
+    {
+      "terrain": null,
+      "background": "wooden_floor"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
         }
       },
       "background": "grass"
     },
     {
       "terrain": {
-        "sprite": "bones1",
+        "sprite": "water",
         "properties": {
-          "blockingVision": true
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
         }
       },
       "background": "grass"
@@ -2498,503 +2337,924 @@
       "background": "grass"
     },
     {
-      "terrain": null,
-      "background": "grass"
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
       "terrain": null,
       "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
+    },
+    {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "ship_sunken",
+        "properties": {
+          "blockingVision": true
+        }
+      },
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "wooden_floor"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "water"
     },
     {
       "terrain": null,
+      "background": "water"
+    },
+    {
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     },
     {
-      "terrain": null,
+      "terrain": {
+        "sprite": "water",
+        "properties": {
+          "blockingVision": false
+        }
+      },
       "background": "grass"
     }
   ]
