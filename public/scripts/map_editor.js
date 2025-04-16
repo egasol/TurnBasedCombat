@@ -7,6 +7,8 @@ const spritesDiv = document.getElementById("sprites");
 const setGridButton = document.getElementById("setGridButton");
 const saveButton = document.getElementById("saveButton");
 const loadFileInput = document.getElementById("loadFile");
+const terrainModeButton = document.getElementById("terrainModeButton");
+const backgroundModeButton = document.getElementById("backgroundModeButton");
 
 let selectedSprite = null;
 let gridData = [];
@@ -56,13 +58,16 @@ setGridButton.addEventListener("click", () => {
 });
 
 // --- Mode controls ---
-document.getElementById("terrainModeButton").addEventListener("click", () => {
+terrainModeButton.addEventListener("click", () => {
   mode = 'terrain';
-  console.log("Switched to TERRAIN editing mode");
+  terrainModeButton.classList.add("active");
+  backgroundModeButton.classList.remove("active");
 });
-document.getElementById("backgroundModeButton").addEventListener("click", () => {
+
+backgroundModeButton.addEventListener("click", () => {
   mode = 'background';
-  console.log("Switched to BACKGROUND editing mode");
+  backgroundModeButton.classList.add("active");
+  terrainModeButton.classList.remove("active");
 });
 
 // Render grid function adjusted to use nested layers per cell

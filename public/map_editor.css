@@ -61,6 +61,8 @@ input[type="file"] {
   height: 32px;
   position: relative; /* so that inner elements can be positioned absolutely */
   overflow: hidden;
+  border: 1px solid #ccc; /* adds a subtle outline */
+  /* box-sizing: border-box; */
 }
 
 .sprite-option {
@@ -86,4 +88,20 @@ input[type="file"] {
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#modeControls button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#modeControls button.active {
+  background-color: #4287f5;
+  color: #fff;
+  border-color: #4287f5;
 }
