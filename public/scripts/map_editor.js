@@ -54,6 +54,7 @@ function populateSpriteSelector() {
 setGridButton.addEventListener("click", () => {
   gridWidth = parseInt(document.getElementById("gridWidth").value);
   gridHeight = parseInt(document.getElementById("gridHeight").value);
+  initGridData();
   renderGrid();
 });
 
@@ -70,6 +71,12 @@ backgroundModeButton.addEventListener("click", () => {
   terrainModeButton.classList.remove("active");
 });
 
+function initGridData() {
+  gridData = Array.from({ length: gridHeight }, () =>
+    Array.from({ length: gridWidth }, () => ({ terrain: null, background: "grass" }))
+  );
+}
+
 // Render grid function adjusted to use nested layers per cell
 function renderGrid() {
   const grid = document.getElementById("grid");
@@ -78,11 +85,6 @@ function renderGrid() {
   // Set up grid dimensions (using CSS grid layout)
   grid.style.gridTemplateColumns = `repeat(${gridWidth}, 32px)`;
   grid.style.gridTemplateRows = `repeat(${gridHeight}, 32px)`;
-
-  // Initialize gridData as a 2D array where each cell is an object with two layers:
-  gridData = Array.from({ length: gridHeight }, () =>
-    Array.from({ length: gridWidth }, () => ({ terrain: null, background: "grass" }))
-  );
 
   // Create grid cells
   for (let y = 0; y < gridHeight; y++) {
@@ -181,23 +183,34 @@ saveButton.addEventListener("click", () => {
 // Load a map from a file
 loadFileInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
+  if (!file) return;
+
   const reader = new FileReader();
   reader.onload = (e) => {
-    const mapData = JSON.parse(e.target.result);
-    gridWidth = mapData.gridWidth;
-    gridHeight = mapData.gridHeight;
-    gridData = Array.from({ length: gridHeight }, (_, y) =>
-      Array.from({ length: gridWidth }, (_, x) => mapData.terrain.find(t => t.x === x && t.y === y) || null)
-    );
-    renderGrid();
-    // Populate the grid based on loaded data
-    mapData.terrain.forEach(t => {
-      const cell = grid.children[t.y * gridWidth + t.x];
-      cell.style.backgroundImage = `url(${spriteSources[t.type]})`;
-    });
+    try {
+      const mapData = JSON.parse(e.target.result);
+
+      gridWidth = mapData.gridWidth;
+      gridHeight = mapData.gridHeight;
+
+      initGridData();
+
+      gridData = Array.from({ length: gridHeight }, (_, y) =>
+        Array.from({ length: gridWidth }, (_, x) =>
+          mapData.terrain[y * gridWidth + x]
+        )
+      );
+
+      renderGrid();
+
+      console.log("Loaded map successfully:", mapData);
+    } catch (err) {
+      console.error("Error loading map file:", err);
+    }
   };
   reader.readAsText(file);
 });
 
 // Initial render
+initGridData();
 renderGrid();
