@@ -80,6 +80,7 @@ input[type="file"] {
 }
 
 .cell-background,
+.cell-npc,
 .cell-terrain {
   position: absolute;
   top: 0;

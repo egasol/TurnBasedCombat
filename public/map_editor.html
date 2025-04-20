@@ -28,6 +28,7 @@
     <div id="modeControls">
       <button id="terrainModeButton">Terrain Mode</button>
       <button id="backgroundModeButton">Background Mode</button>
+      <button id="npcModeButton">NPC Mode</button>
     </div>
 
     <!-- Grid Display -->
@@ -38,6 +39,19 @@
       <h3>Properties</h3>
       <label for="blocksVision">
         <input type="checkbox" id="blocksVision"> Blocks Vision
+      </label>
+    </div>
+
+    <!-- Optional: NPC editor controls -->
+    <div class="npc-editor">
+      <h3>NPC Options</h3>
+      <label for="npcFriendly">
+        <input type="checkbox" id="npcFriendly"> Friendly NPC
+      </label>
+      <br>
+      <label for="npcHealth">
+        Health:
+        <input type="number" id="npcHealth" min="1" value="20">
       </label>
     </div>
 

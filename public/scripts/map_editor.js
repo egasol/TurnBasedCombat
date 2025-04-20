@@ -9,12 +9,14 @@ const saveButton = document.getElementById("saveButton");
 const loadFileInput = document.getElementById("loadFile");
 const terrainModeButton = document.getElementById("terrainModeButton");
 const backgroundModeButton = document.getElementById("backgroundModeButton");
+const npcModeButton = document.getElementById("npcModeButton");
 
 let selectedSprite = null;
 let gridData = [];
 let gridWidth = 25
 let gridHeight = 25;
 let mode = 'terrain';
+terrainModeButton.classList.add("active");
 
 let isMouseDown = false;
 
@@ -72,12 +74,21 @@ terrainModeButton.addEventListener("click", () => {
   mode = 'terrain';
   terrainModeButton.classList.add("active");
   backgroundModeButton.classList.remove("active");
+  npcModeButton.classList.remove("active");
 });
 
 backgroundModeButton.addEventListener("click", () => {
   mode = 'background';
   backgroundModeButton.classList.add("active");
   terrainModeButton.classList.remove("active");
+  npcModeButton.classList.remove("active");
+});
+
+npcModeButton.addEventListener("click", () => {
+  mode = 'npc';
+  npcModeButton.classList.add("active");
+  terrainModeButton.classList.remove("active");
+  backgroundModeButton.classList.remove("active");
 });
 
 function initGridData() {
@@ -113,6 +124,12 @@ function renderGrid() {
           };
         } else if (mode === 'background') {
           gridData[y][x].background = selectedSprite;
+        } else if (mode === 'npc') {
+          gridData[y][x].npc = {
+            sprite: selectedSprite,
+            friendly: document.getElementById("npcFriendly").checked,
+            health: document.getElementById("npcHealth").value
+          };
         }
         updateCellDisplay(cell, gridData[y][x]);
       };
@@ -124,13 +141,15 @@ function renderGrid() {
         }
       });
 
+      // Right click to remove layer
       cell.addEventListener("contextmenu", (e) => {
         e.preventDefault();
-
         if (mode === 'terrain') {
           gridData[y][x].terrain = null;
         } else if (mode === 'background') {
           gridData[y][x].background = null;
+        } else if (mode === 'npc') {
+          gridData[y][x].npc = null;
         }
         updateCellDisplay(cell, gridData[y][x]);
       });
@@ -145,26 +164,30 @@ function createCell() {
   const cell = document.createElement("div");
   cell.classList.add("grid-cell");
 
-  // Create the background layer div
   const bgDiv = document.createElement("div");
   bgDiv.classList.add("cell-background");
 
-  // Create the terrain layer div
+  const npcDiv = document.createElement("div");
+  npcDiv.classList.add("cell-npc");
+
   const terrainDiv = document.createElement("div");
   terrainDiv.classList.add("cell-terrain");
 
   // Append both layers to the cell container
   cell.appendChild(bgDiv);
+  cell.appendChild(npcDiv);
   cell.appendChild(terrainDiv);
   return cell;
 }
 
 function updateCellDisplay(cell, cellData) {
   const bgDiv = cell.querySelector(".cell-background");
+  const npcDiv = cell.querySelector(".cell-npc");
   const terrainDiv = cell.querySelector(".cell-terrain");
 
   bgDiv.style.backgroundImage = cellData.background ? `url(${spriteSources[cellData.background]})` : "";
   terrainDiv.style.backgroundImage = cellData.terrain ? `url(${spriteSources[cellData.terrain.sprite]})` : "";
+  npcDiv.style.backgroundImage = cellData.npc ? `url(${spriteSources[cellData.npc.sprite]})` : "";
 
   cell.classList.remove("has-terrain", "blocking-vision");
 
