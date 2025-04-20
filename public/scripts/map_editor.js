@@ -124,6 +124,17 @@ function renderGrid() {
         }
       });
 
+      cell.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+
+        if (mode === 'terrain') {
+          gridData[y][x].terrain = null;
+        } else if (mode === 'background') {
+          gridData[y][x].background = null;
+        }
+        updateCellDisplay(cell, gridData[y][x]);
+      });
+
       grid.appendChild(cell);
     }
   }
