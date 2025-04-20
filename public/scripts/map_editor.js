@@ -16,6 +16,15 @@ let gridWidth = 25
 let gridHeight = 25;
 let mode = 'terrain';
 
+let isMouseDown = false;
+
+document.addEventListener("mousedown", () => {
+  isMouseDown = true;
+});
+document.addEventListener("mouseup", () => {
+  isMouseDown = false;
+});
+
 function getSprites() {
   fetch('/sprite-sources')
     .then((response) => response.json())
@@ -94,9 +103,8 @@ function renderGrid() {
       // Update the cell display based on current gridData properties
       updateCellDisplay(cell, gridData[y][x]);
 
-      // When clicking, update the appropriate layer
-      cell.addEventListener("click", () => {
-        if (!selectedSprite) return; // nothing selected
+      const updateCell = () => {
+        if (!selectedSprite) return;
 
         if (mode === 'terrain') {
           gridData[y][x].terrain = {
@@ -107,6 +115,13 @@ function renderGrid() {
           gridData[y][x].background = selectedSprite;
         }
         updateCellDisplay(cell, gridData[y][x]);
+      };
+
+      cell.addEventListener("click", updateCell);
+      cell.addEventListener("mouseover", () => {
+        if (isMouseDown) {
+          updateCell();
+        }
       });
 
       grid.appendChild(cell);
