@@ -101,7 +101,7 @@ function renderGrid() {
         if (mode === 'terrain') {
           gridData[y][x].terrain = {
             sprite: selectedSprite,
-            properties: { blockingVision: true }
+            properties: { blockingVision: document.getElementById("blocksVision").checked }
           };
         } else if (mode === 'background') {
           gridData[y][x].background = selectedSprite;
