@@ -133,17 +133,21 @@ function createCell() {
   return cell;
 }
 
-// Function to update a cell's visual appearance
 function updateCellDisplay(cell, cellData) {
-  // Each cell is assumed to have two child nodes:
-  // first child: .cell-background, second child: .cell-terrain
   const bgDiv = cell.querySelector(".cell-background");
   const terrainDiv = cell.querySelector(".cell-terrain");
 
-  // Update background layer — if a background sprite is set, otherwise blank
   bgDiv.style.backgroundImage = cellData.background ? `url(${spriteSources[cellData.background]})` : "";
-  // Update terrain layer similarly
   terrainDiv.style.backgroundImage = cellData.terrain ? `url(${spriteSources[cellData.terrain.sprite]})` : "";
+
+  cell.classList.remove("has-terrain", "blocking-vision");
+
+  if (cellData.terrain) {
+    cell.classList.add("has-terrain");
+    if (cellData.terrain.properties && cellData.terrain.properties.blockingVision) {
+      cell.classList.add("blocking-vision");
+    }
+  }
 }
 
 // Save the map to a file

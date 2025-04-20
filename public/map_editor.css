@@ -46,14 +46,13 @@ input[type="file"] {
   display: block;
   margin: 10px 0;
 }
-
 .grid {
   display: grid;
-  grid-auto-flow: row; /* Ensure the grid flows in rows */
-  gap: 0; /* Remove spacing between grid cells */
-  justify-content: center; /* Center grid horizontally */
-  align-items: center; /* Center grid vertically */
-  gap: 1px;
+  grid-auto-flow: row;
+  /* Remove the conflict by using only one gap value */
+  gap: 0; /* No gap between cells */
+  justify-content: center;
+  align-items: center;
 }
 
 .grid-cell {
@@ -61,8 +60,9 @@ input[type="file"] {
   height: 32px;
   position: relative; /* so that inner elements can be positioned absolutely */
   overflow: hidden;
-  border: 1px solid #ccc; /* adds a subtle outline */
-  /* box-sizing: border-box; */
+  margin: 0;       /* remove any default margin */
+  padding: 0;      /* remove any default padding */
+  box-sizing: border-box; /* include borders in the sizing */
 }
 
 .sprite-option {
@@ -104,4 +104,28 @@ input[type="file"] {
   background-color: #4287f5;
   color: #fff;
   border-color: #4287f5;
+}
+
+.grid-cell.has-terrain::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 255, 0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.grid-cell.blocking-vision::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 3;
 }
