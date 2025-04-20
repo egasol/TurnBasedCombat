@@ -4,12 +4,6 @@ const path = require('path');
 
 // --- Global State ---
 const players = {};
-const npcs = {
-  'npc1': { id: 'npc1', x: 11, y: 3, friendly: false, health: 20, isInBattle: false, sprite: "rat" },
-  'npc2': { id: 'npc2', x: 13, y: 23, friendly: false, health: 20, isInBattle: false, sprite: "rat" },
-  'npc3': { id: 'npc3', x: 20, y: 12, friendly: false, health: 20, isInBattle: false, sprite: "rat" },
-  'npc4': { id: 'npc4', x: 5, y: 17, friendly: false, health: 20, isInBattle: false, sprite: "rat" }
-};
 
 let gameMode = 'free'; // Either "free" or "battle"
 let battleQueue = [];  // Array of objects { type: 'player' or 'npc', id: <id> }
@@ -19,6 +13,7 @@ let terrain = terrainConfig.terrain;
 let background = terrainConfig.background;
 let gridWidth = terrainConfig.gridWidth;
 let gridHeight = terrainConfig.gridHeight;
+let npcs = terrainConfig.npcs;
 
 // --- Helper Functions ---
 function manhattan(x1, y1, x2, y2) {
@@ -98,6 +93,8 @@ function loadTerrain(filePath) {
 
     const newTerrainArray = [];
     const newBackgroundArray = [];
+    const newNpcs = {};
+    let npcCounter = 1;
 
     for (let i = 0; i < parsedData.terrain.length; i++) {
       const cell = parsedData.terrain[i];
@@ -113,13 +110,27 @@ function loadTerrain(filePath) {
         });
       }
       newBackgroundArray.push(cell.background || null);
+
+      if (cell.npc) {
+        newNpcs["npc" + npcCounter] = {
+          id: "npc" + npcCounter,
+          x: x,
+          y: y,
+          friendly: cell.npc.friendly,
+          health: Math.max(1, parseInt(cell.npc.health, 10) || 1),
+          isInBattle: false,
+          sprite: cell.npc.sprite
+        };
+        npcCounter++;
+      }
     }
 
     return {
       gridWidth: width,
       gridHeight: height,
       terrain: newTerrainArray,
-      background: newBackgroundArray
+      background: newBackgroundArray,
+      npcs: newNpcs
     };
   }
   catch (err) {

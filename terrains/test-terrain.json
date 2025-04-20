@@ -218,7 +218,12 @@
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "grass",
+      "npc": {
+        "sprite": "badger",
+        "friendly": false,
+        "health": "6"
+      }
     },
     {
       "terrain": null,
@@ -380,7 +385,12 @@
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "grass",
+      "npc": {
+        "sprite": "badger",
+        "friendly": false,
+        "health": "6"
+      }
     },
     {
       "terrain": null,
@@ -656,7 +666,12 @@
     },
     {
       "terrain": null,
-      "background": "cobblestone"
+      "background": "cobblestone",
+      "npc": {
+        "sprite": "ogre-warlock",
+        "friendly": false,
+        "health": "40"
+      }
     },
     {
       "terrain": null,
@@ -1077,7 +1092,12 @@
     },
     {
       "terrain": null,
-      "background": "cobblestone"
+      "background": "cobblestone",
+      "npc": {
+        "sprite": "goblin-assassin",
+        "friendly": false,
+        "health": "25"
+      }
     },
     {
       "terrain": null,
@@ -1311,7 +1331,12 @@
     },
     {
       "terrain": null,
-      "background": "cobblestone"
+      "background": "cobblestone",
+      "npc": {
+        "sprite": "ogre-warlock",
+        "friendly": false,
+        "health": "40"
+      }
     },
     {
       "terrain": null,
@@ -2194,7 +2219,12 @@
     },
     {
       "terrain": null,
-      "background": "grass"
+      "background": "grass",
+      "npc": {
+        "sprite": "deer",
+        "friendly": false,
+        "health": "15"
+      }
     },
     {
       "terrain": null,
@@ -2812,7 +2842,12 @@
     },
     {
       "terrain": null,
-      "background": "wooden_floor"
+      "background": "wooden_floor",
+      "npc": {
+        "sprite": "ogre",
+        "friendly": false,
+        "health": "150"
+      }
     },
     {
       "terrain": null,
