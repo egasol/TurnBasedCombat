@@ -69,6 +69,8 @@ function setTerrain(terrainConfig) {
   background = terrainConfig.background;
   gridWidth = terrainConfig.gridWidth;
   gridHeight = terrainConfig.gridHeight;
+  npcs = terrainConfig.npcs;
+  battleQueue = [];
 }
 
 function loadTerrain(filePath) {
@@ -117,7 +119,7 @@ function loadTerrain(filePath) {
           x: x,
           y: y,
           friendly: cell.npc.friendly,
-          health: Math.max(1, parseInt(cell.npc.health, 10) || 1),
+          health: cell.npc.health,
           isInBattle: false,
           sprite: cell.npc.sprite
         };
@@ -333,6 +335,22 @@ function processNpcTurn(npcId, io) {
   }
 }
 
+function updateNpcsBattleStatus(player) {
+  for (const npcId in npcs) {
+    const npc = npcs[npcId];
+    if (!npc.friendly) {
+      // If the flag is already true, keep it as true.
+      if (npc.isInBattle) continue;
+
+      // Check if the player is within Euclidean distance 4.
+      if (euclidean(player.x, player.y, npc.x, npc.y) < 4) {
+        npc.isInBattle = true;
+        console.log(`Npc isInBattle = True`)
+      }
+    }
+  }
+}
+
 function cleanupBattleQueue() {
   battleQueue = battleQueue.filter(item => {
     if (item.type === 'player') {
@@ -452,5 +470,6 @@ module.exports = {
   finishTurn,
   processNpcTurn,
   loadTerrain,
-  setTerrain
+  setTerrain,
+  updateNpcsBattleStatus
 };

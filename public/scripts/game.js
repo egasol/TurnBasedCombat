@@ -404,6 +404,7 @@ socket.on('consoleLog', (msg) => { console.log(msg); });
 socket.on('terrainUpdated', (map) => {
   terrain = map.terrain;
   background = map.background;
+  npcs = map.npcs;
   console.log('Terrain completely replaced with new data.');
 });
 
