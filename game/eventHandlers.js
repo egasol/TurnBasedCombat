@@ -109,40 +109,9 @@ function animateMovement(entity, path, steps, io, entityType, callback) {
 function handleAttack(socket, data, io) {
   const player = gameState.players[socket.id];
   if (!player) return;
+  if (gameState.gameMode !== 'battle') return;
 
-  if (gameState.gameMode === 'battle') {
-    if (!player.isTurn) return;
-    let targetNpc = null;
-    if (data.npcId && gameState.npcs[data.npcId]) {
-      targetNpc = gameState.npcs[data.npcId];
-    }
-    if (!targetNpc) return;
-    if (player.actionPoints < 4) return;
-    if (gameState.chebyshev(player.x, player.y, targetNpc.x, targetNpc.y) > player.weaponRange) return;
-    player.actionPoints -= 4;
-    const maxAttack = player.weaponAttack + player.strength;
-    const damage = Math.floor(Math.random() * maxAttack) + 1;
-    targetNpc.health -= damage;
-    io.emit('damageFeedback', {
-      attacker: socket.id,
-      target: targetNpc.id,
-      damage: damage,
-      x: targetNpc.x,
-      y: targetNpc.y
-    });
-    io.emit('damageLog', `Player ${socket.id} attacked NPC ${targetNpc.id} for ${damage} damage.`);
-    if (targetNpc.health <= 0) {
-      delete gameState.npcs[targetNpc.id];
-      io.emit('npcRemoved', { id: targetNpc.id });
-      gameState.checkBattleOver(io);
-    } else {
-      io.emit('npcUpdated', { id: targetNpc.id, health: targetNpc.health });
-    }
-    io.emit('playerUpdated', { id: socket.id, actionPoints: player.actionPoints });
-    if (player.actionPoints <= 0) {
-      gameState.finishTurn(io);
-    }
-  }
+  gameState.processAttack(socket.id, data.npcId, io);
 }
 
 function handleSkipTurn(socket, io) {

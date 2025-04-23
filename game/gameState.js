@@ -127,6 +127,8 @@ function loadTerrain(filePath) {
       }
     }
 
+    gameMode = 'free';
+
     return {
       gridWidth: width,
       gridHeight: height,
@@ -235,6 +237,45 @@ function finishTurn(io) {
     return;
   }
   io.emit('turnUpdate', { battleQueue, players, npcs, terrain });
+}
+
+function processAttack(playerId, npcId, io) {
+  const player = players[playerId];
+  const targetNpc = npcs[npcId];
+  if (!player || !player.isTurn) return;
+  if (!targetNpc) return;
+  if (player.actionPoints < 4) return;
+  if (chebyshev(player.x, player.y, targetNpc.x, targetNpc.y) > player.weaponRange) return;
+
+  player.actionPoints -= 4;
+
+  const maxAttack = player.weaponAttack + player.strength;
+  const damage = Math.floor(Math.random() * maxAttack) + 1;
+  targetNpc.health -= damage;
+
+  io.emit('damageFeedback', {
+    attacker: playerId,
+    target: targetNpc.id,
+    damage: damage,
+    x: targetNpc.x,
+    y: targetNpc.y
+  });
+
+  io.emit('damageLog', `Player ${playerId} attacked NPC ${targetNpc.id} for ${damage} damage.`);
+
+  if (targetNpc.health <= 0) {
+    delete npcs[targetNpc.id];
+    io.emit('npcRemoved', { id: targetNpc.id });
+    checkBattleOver(io);
+  } else {
+    io.emit('npcUpdated', { id: targetNpc.id, health: targetNpc.health });
+  }
+
+  io.emit('playerUpdated', { id: playerId, actionPoints: player.actionPoints });
+
+  if (player.actionPoints <= 0) {
+    finishTurn(io);
+  }
 }
 
 function processNpcTurn(npcId, io) {
@@ -471,5 +512,6 @@ module.exports = {
   processNpcTurn,
   loadTerrain,
   setTerrain,
-  updateNpcsBattleStatus
+  updateNpcsBattleStatus,
+  processAttack
 };
