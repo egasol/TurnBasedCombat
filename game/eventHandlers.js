@@ -95,13 +95,7 @@ function animateMovement(entity, path, steps, io, entityType, callback) {
   } else {
     animateMovement(player, path, path.length - 1, io, 'player', () => {
       io.emit('playerMoved', { id: socket.id, x: player.x, y: player.y, actionPoints: "Unlimited" });
-      for (const npcId in gameState.npcs) {
-        const npc = gameState.npcs[npcId];
-        if (!npc.friendly && gameState.euclidean(player.x, player.y, npc.x, npc.y) < 4) {
-          gameState.initBattleMode(io);
-          break;
-        }
-      }
+      gameState.checkAggro(player, io);
     });
   }
 }

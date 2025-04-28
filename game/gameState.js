@@ -278,6 +278,16 @@ function processAttack(playerId, npcId, io) {
   }
 }
 
+function checkAggro(player, io) {
+  for (npcId in npcs) {
+    const npc = npcs[npcId];
+    if (!npc.friendly && euclidean(player.x, player.y, npc.x, npc.y) < 4) {
+      initBattleMode(io);
+      break;
+    }
+  }
+}
+
 function processNpcTurn(npcId, io) {
   // Ensure that this NPC is the current combatant.
   if (!battleQueue.length || battleQueue[0].type !== 'npc' || battleQueue[0].id !== npcId) {
@@ -513,5 +523,6 @@ module.exports = {
   loadTerrain,
   setTerrain,
   updateNpcsBattleStatus,
-  processAttack
+  processAttack,
+  checkAggro
 };
